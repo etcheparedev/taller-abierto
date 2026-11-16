@@ -1,0 +1,384 @@
+---
+// "Propose a guide" form: the door for people who do not use git.
+// It builds the same Markdown file a contributor would write by hand and
+// hands it to GitHub (as an issue, or as a new file for a pull request).
+import Layout from '../../layouts/Layout.astro';
+import { CATEGORIES, CATEGORY_IDS, DIFFICULTY_LABELS } from '../../lib/categories';
+import { getModels } from '../../lib/content';
+import { SITE, url } from '../../lib/site';
+
+const models = await getModels();
+---
+
+<Layout title="Proponer una guía" description="Escribe una guía de mantenimiento con un formulario, sin tocar archivos ni código.">
+  <div class="wrap page-head">
+    <nav class="crumbs" aria-label="Ruta">
+      <a href={url()}>Inicio</a><span aria-hidden="true">/</span><span>Proponer una guía</span>
+    </nav>
+    <div>
+      <span class="eyebrow">Sin código</span>
+      <h1>Proponer una guía</h1>
+    </div>
+    <p class="muted" style="max-width: 62ch">
+      Completa el formulario y envíalo: se abre GitHub con tu guía ya escrita para que solo confirmes. Necesitas una
+      cuenta de GitHub (es gratis). Lo que escribes se guarda en este navegador hasta que lo envíes.
+    </p>
+  </div>
+
+  <div class="wrap propose" data-repo={SITE.repo} data-branch={SITE.branch}>
+    <form id="propose-form" class="form" novalidate>
+      <fieldset>
+        <legend>Vehículo</legend>
+        <label>
+          ¿Para qué vehículo es?
+          <select name="vehicle">
+            {
+              models.map((model) => (
+                <optgroup label={`${model.brand} ${model.name}`}>
+                  {model.versions.map((version) => (
+                    <option value={version.id}>
+                      {model.brand} {model.name} · {version.data.version}
+                    </option>
+                  ))}
+                  {model.versions.length > 1 && (
+                    <option value={model.id}>
+                      {model.brand} {model.name} · todas las versiones
+                    </option>
+                  )}
+                </optgroup>
+              ))
+            }
+            <option value="new">Otro vehículo (todavía no está en el sitio)</option>
+          </select>
+        </label>
+        <div class="form-row" data-new-vehicle hidden>
+          <label>Marca <input name="brand" placeholder="Honda" /></label>
+          <label>Modelo <input name="model" placeholder="CB 190 R" /></label>
+          <label>Versión <input name="version" placeholder="Carburada, FI, ABS…" /></label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>La guía</legend>
+        <label>
+          Título
+          <input name="title" required placeholder="Cambiar el aceite y el filtro" />
+        </label>
+        <label>
+          Resumen en una frase
+          <input name="summary" required placeholder="Qué se hace y para qué sirve." />
+        </label>
+        <div class="form-row">
+          <label>
+            Tipo de mantenimiento
+            <select name="category">
+              {CATEGORY_IDS.map((id) => <option value={id}>{CATEGORIES[id].plural}</option>)}
+            </select>
+          </label>
+          <label>
+            Dificultad
+            <select name="difficulty">
+              {[1, 2, 3].map((n) => <option value={n}>{DIFFICULTY_LABELS[n as 1 | 2 | 3]}</option>)}
+            </select>
+          </label>
+        </div>
+        <div class="form-row">
+          <label>Tiempo aproximado <input name="time" placeholder="30 min" /></label>
+          <label>Cada cuánto se hace <input name="interval" placeholder="Cada 5000 km" /></label>
+        </div>
+        <label>
+          Herramientas y materiales <small>una por línea</small>
+          <textarea name="tools" rows="3" placeholder={'Llave de 17 mm\nAceite 20W50, 1.2 L'}></textarea>
+        </label>
+        <label>
+          Advertencias antes de empezar <small>una por línea</small>
+          <textarea name="warnings" rows="2" placeholder="Trabaja con el motor frío."></textarea>
+        </label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Pasos</legend>
+        <p class="muted form-help">Un paso por casilla, en el orden en que se hacen. Incluye medidas y torques si los sabes.</p>
+        <ol class="step-fields" data-steps></ol>
+        <button type="button" class="btn btn-small" data-add-step>+ Agregar paso</button>
+      </fieldset>
+
+      <fieldset>
+        <legend>Fuente y video</legend>
+        <label>
+          ¿De dónde salen los datos?
+          <input name="source" placeholder="Manual de servicio, experiencia propia…" />
+        </label>
+        <div class="form-row">
+          <label>Video de YouTube <small>opcional</small> <input name="videoUrl" type="url" placeholder="https://youtu.be/…" /></label>
+          <label>Título del video <input name="videoTitle" placeholder="Cambio de aceite paso a paso" /></label>
+        </div>
+        <p class="muted form-help">
+          Las fotos se agregan después: en GitHub puedes arrastrarlas a tu propuesta. Usa solo fotos tuyas o de licencia
+          libre, nunca las del manual.
+        </p>
+      </fieldset>
+
+      <fieldset>
+        <legend>Autor <small>opcional</small></legend>
+        <p class="muted form-help">
+          Aparece en la guía para que la gente pueda ubicarte. Todo lo que pongas aquí queda público: deja en blanco lo
+          que no quieras mostrar.
+        </p>
+        <div class="form-row">
+          <label>Tu nombre <input name="authorName" placeholder="Juan Pérez" autocomplete="name" /></label>
+          <label>Taller <input name="authorWorkshop" placeholder="Taller Pérez Motos" /></label>
+        </div>
+        <div class="form-row">
+          <label>Dirección o ciudad <input name="authorLocation" placeholder="Av. Siempre Viva 123, Córdoba" /></label>
+          <label>Contacto <input name="authorContact" placeholder="Teléfono, WhatsApp o correo" /></label>
+        </div>
+        <label>
+          Redes o sitio web <small>un enlace por línea</small>
+          <textarea name="authorLinks" rows="2" placeholder="https://instagram.com/tu-taller"></textarea>
+        </label>
+      </fieldset>
+
+      <p class="form-error" data-error role="alert" hidden></p>
+      <div class="hero-actions">
+        <button type="button" class="btn btn-primary" data-send="issue">
+          Enviar propuesta <span class="arrow" aria-hidden="true">→</span>
+        </button>
+        <button type="button" class="btn" data-send="file">Crear el archivo (pull request)</button>
+        <button type="button" class="btn" data-copy>Copiar</button>
+        <button type="button" class="btn" data-reset>Vaciar</button>
+      </div>
+      <p class="muted form-help" data-status role="status"></p>
+    </form>
+
+    <aside class="panel propose-preview">
+      <h2>Así queda el archivo</h2>
+      <code class="propose-path" data-path></code>
+      <pre data-preview></pre>
+    </aside>
+  </div>
+</Layout>
+
+<script>
+  // Longest address we hand to GitHub. Above it, the guide travels on the clipboard instead.
+  const MAX_URL_LENGTH = 7000;
+  const DRAFT_KEY = 'propose-draft';
+
+  interface Draft {
+    fields: Record<string, string>;
+    steps: string[];
+  }
+
+  /** "Cambiar el aceite" -> "cambiar-el-aceite" */
+  const slugify = (text: string) =>
+    text
+      .normalize('NFD')
+      .replace(/[̀-ͯ]/g, '')
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '');
+
+  const lines = (text: string) =>
+    text
+      .split('\n')
+      .map((line) => line.trim())
+      .filter(Boolean);
+
+  // A JSON string is also a valid YAML double-quoted string, so nothing the user types can break the file.
+  const quote = (text: string) => JSON.stringify(text.trim());
+  const yamlList = (key: string, items: string[]) =>
+    items.length > 0 ? `${key}:\n${items.map((item) => `  - ${quote(item)}`).join('\n')}\n` : '';
+
+  /** "https://www.instagram.com/taller" -> "Instagram". Empty when the text is not a web address. */
+  const linkLabel = (link: string) => {
+    try {
+      const name = new URL(link).hostname.replace(/^www\./, '').split('.')[0];
+      return name.charAt(0).toUpperCase() + name.slice(1);
+    } catch {
+      return '';
+    }
+  };
+
+  document.addEventListener('astro:page-load', () => {
+    const form = document.querySelector<HTMLFormElement>('#propose-form');
+    const root = document.querySelector<HTMLElement>('.propose');
+    if (!form || !root) return;
+
+    const stepList = form.querySelector<HTMLElement>('[data-steps]')!;
+    const newVehicle = form.querySelector<HTMLElement>('[data-new-vehicle]')!;
+    const preview = root.querySelector<HTMLElement>('[data-preview]')!;
+    const pathLabel = root.querySelector<HTMLElement>('[data-path]')!;
+    const errorBox = form.querySelector<HTMLElement>('[data-error]')!;
+    const status = form.querySelector<HTMLElement>('[data-status]')!;
+    const repo = root.dataset.repo!;
+    const branch = root.dataset.branch!;
+
+    const field = (name: string) => (form.elements.namedItem(name) as HTMLInputElement).value.trim();
+    const steps = () => [...stepList.querySelectorAll('textarea')].map((area) => area.value.trim()).filter(Boolean);
+
+    const addStep = (text = '') => {
+      const item = document.createElement('li');
+      const area = document.createElement('textarea');
+      area.rows = 2;
+      area.value = text;
+      area.placeholder = 'Describe el paso';
+      const remove = document.createElement('button');
+      remove.type = 'button';
+      remove.textContent = 'Quitar';
+      remove.setAttribute('aria-label', 'Quitar este paso');
+      remove.addEventListener('click', () => {
+        item.remove();
+        refresh();
+      });
+      item.append(area, remove);
+      stepList.append(item);
+      return area;
+    };
+
+    /** Folder of the vehicle inside src/content/vehicles/. */
+    const vehiclePath = () => {
+      if (field('vehicle') !== 'new') return field('vehicle');
+      return [field('brand'), field('model'), field('version')].map(slugify).join('/');
+    };
+    const filePath = () => `src/content/vehicles/${vehiclePath()}/guides/${slugify(field('title')) || 'new-guide'}.md`;
+
+    const markdown = () => {
+      let front = `title: ${quote(field('title'))}\nsummary: ${quote(field('summary'))}\n`;
+      front += `category: ${field('category')}\ndifficulty: ${field('difficulty')}\n`;
+      if (field('time')) front += `time: ${quote(field('time'))}\n`;
+      if (field('interval')) front += `interval: ${quote(field('interval'))}\n`;
+      front += yamlList('tools', lines(field('tools')));
+      front += yamlList('warnings', lines(field('warnings')));
+      if (field('videoUrl')) {
+        front += `videos:\n  - title: ${quote(field('videoTitle') || field('title'))}\n    url: ${quote(field('videoUrl'))}\n`;
+      }
+      if (field('source')) front += `source: ${quote(field('source'))}\n`;
+      if (field('authorName')) {
+        front += `author:\n  name: ${quote(field('authorName'))}\n`;
+        if (field('authorWorkshop')) front += `  workshop: ${quote(field('authorWorkshop'))}\n`;
+        if (field('authorLocation')) front += `  location: ${quote(field('authorLocation'))}\n`;
+        if (field('authorContact')) front += `  contact: ${quote(field('authorContact'))}\n`;
+        const links = lines(field('authorLinks')).flatMap((link) => {
+          const label = linkLabel(link);
+          return label ? [`    - { label: ${quote(label)}, url: ${quote(link)} }`] : [];
+        });
+        if (links.length > 0) front += `  links:\n${links.join('\n')}\n`;
+      }
+      const body = steps()
+        .map((step, i) => `${i + 1}. ${step.replace(/\s*\n\s*/g, ' ')}`)
+        .join('\n');
+      return `---\n${front}---\n\n${body}\n`;
+    };
+
+    const refresh = () => {
+      newVehicle.hidden = field('vehicle') !== 'new';
+      pathLabel.textContent = filePath();
+      preview.textContent = markdown();
+      const draft: Draft = { fields: {}, steps: steps() };
+      new FormData(form).forEach((value, key) => (draft.fields[key] = String(value)));
+      try {
+        localStorage.setItem(DRAFT_KEY, JSON.stringify(draft));
+      } catch {
+        // Storage unavailable: the draft just won't survive a reload.
+      }
+    };
+
+    const problems = () => {
+      const missing: string[] = [];
+      if (!field('title')) missing.push('el título');
+      if (!field('summary')) missing.push('el resumen');
+      if (steps().length === 0) missing.push('al menos un paso');
+      if (!field('authorName') && ['authorWorkshop', 'authorLocation', 'authorContact', 'authorLinks'].some(field)) {
+        missing.push('tu nombre (o vacía los datos de autor)');
+      }
+      if (lines(field('authorLinks')).some((link) => !linkLabel(link))) {
+        missing.push('que los enlaces de redes empiecen con https://');
+      }
+      if (field('vehicle') === 'new' && !(field('brand') && field('model') && field('version'))) {
+        missing.push('marca, modelo y versión del vehículo');
+      }
+      return missing;
+    };
+
+    const copy = async () => {
+      try {
+        await navigator.clipboard.writeText(markdown());
+        return true;
+      } catch {
+        return false;
+      }
+    };
+
+    const send = async (mode: 'issue' | 'file') => {
+      const missing = problems();
+      errorBox.hidden = missing.length === 0;
+      if (missing.length > 0) {
+        errorBox.textContent = `Falta ${missing.join(', ')}.`;
+        return;
+      }
+      if (mode === 'file' && field('vehicle') === 'new') {
+        errorBox.hidden = false;
+        errorBox.textContent =
+          'Un vehículo nuevo necesita también su ficha: usa "Enviar propuesta" y la creamos junto con la guía.';
+        return;
+      }
+
+      const content = markdown();
+      const address = (text: string) => {
+        if (mode === 'file') {
+          return `${repo}/new/${branch}?filename=${encodeURIComponent(filePath())}&value=${encodeURIComponent(text)}`;
+        }
+        const body = `Guía propuesta desde el formulario del sitio.\n\n**Archivo:** \`${filePath()}\`\n\n\`\`\`md\n${text}\`\`\`\n\nFotos: arrástralas aquí debajo (propias o de licencia libre).\n`;
+        return `${repo}/issues/new?title=${encodeURIComponent(`Guía: ${field('title')}`)}&body=${encodeURIComponent(body)}`;
+      };
+
+      let target = address(content);
+      if (target.length > MAX_URL_LENGTH) {
+        // Too long for an address: open GitHub with a placeholder and let the user paste.
+        const copied = await copy();
+        target = address('PEGA AQUÍ TU GUÍA (ya está copiada)\n');
+        status.textContent = copied
+          ? 'Tu guía es larga, así que la copiamos: pégala en GitHub donde dice "PEGA AQUÍ".'
+          : 'Tu guía es larga: usa "Copiar" y pégala en GitHub donde dice "PEGA AQUÍ".';
+      } else {
+        status.textContent = 'Se abrió GitHub en otra pestaña: revisa y confirma ahí.';
+      }
+      window.open(target, '_blank', 'noopener');
+    };
+
+    // Restore the draft, or start with three empty steps.
+    let draft: Draft | null = null;
+    try {
+      draft = JSON.parse(localStorage.getItem(DRAFT_KEY) ?? 'null');
+    } catch {
+      draft = null;
+    }
+    for (const [name, value] of Object.entries(draft?.fields ?? {})) {
+      const input = form.elements.namedItem(name) as HTMLInputElement | null;
+      if (input) input.value = value;
+    }
+    (draft?.steps.length ? draft.steps : ['', '', '']).forEach((step) => addStep(step));
+
+    form.addEventListener('input', refresh);
+    form.querySelector('[data-add-step]')!.addEventListener('click', () => {
+      addStep().focus();
+      refresh();
+    });
+    form.querySelectorAll<HTMLButtonElement>('[data-send]').forEach((button) =>
+      button.addEventListener('click', () => send(button.dataset.send as 'issue' | 'file')),
+    );
+    form.querySelector('[data-copy]')!.addEventListener('click', async () => {
+      status.textContent = (await copy()) ? 'Guía copiada.' : 'No se pudo copiar: selecciona el texto de la vista previa.';
+    });
+    form.querySelector('[data-reset]')!.addEventListener('click', () => {
+      form.reset();
+      stepList.replaceChildren();
+      ['', '', ''].forEach((step) => addStep(step));
+      errorBox.hidden = true;
+      status.textContent = '';
+      refresh();
+    });
+
+    refresh();
+  });
+</script>

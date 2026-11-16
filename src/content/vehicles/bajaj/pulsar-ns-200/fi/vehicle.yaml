@@ -1,7 +1,7 @@
 brand: Bajaj
 model: Pulsar NS 200
 version: FI
-type: moto
+type: motorcycle
 tagline: Versión con inyección electrónica de combustible (DTS-i FI) gobernada por ECU. Naked de 200 cc con refrigeración líquida, triple bujía, chasis perimetral y caja de 6 velocidades.
 highlights:
   - { label: Cilindrada, value: 199.4 cc }

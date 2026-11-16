@@ -1,9 +1,9 @@
 /** Vehicle kinds (`type` in vehicle.yaml) with the URL slug and label of each. */
 export const VEHICLE_TYPES = {
-  moto: { slug: 'motos', label: 'Motos' },
-  auto: { slug: 'autos', label: 'Autos' },
-  camioneta: { slug: 'camionetas', label: 'Camionetas' },
-  otro: { slug: 'otros', label: 'Otros' },
+  motorcycle: { slug: 'motorcycles', label: 'Motos' },
+  car: { slug: 'cars', label: 'Autos' },
+  truck: { slug: 'trucks', label: 'Camionetas' },
+  other: { slug: 'other', label: 'Otros' },
 } as const;
 
 export type VehicleType = keyof typeof VEHICLE_TYPES;

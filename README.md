@@ -6,9 +6,9 @@ Guides are grouped into three maintenance segments:
 
 | Segment      | `category`   | What goes here                                                  |
 | ------------ | ------------ | --------------------------------------------------------------- |
-| De rutina    | `rutina`     | Recurring tasks by time or mileage (wash, chain, fluid levels). |
-| Básicos      | `basico`     | Simple jobs anyone can do with common tools.                    |
-| Específicos  | `especifico` | System-specific jobs needing experience or special tools.       |
+| De rutina    | `routine`    | Recurring tasks by time or mileage (wash, chain, fluid levels). |
+| Básicos      | `basic`      | Simple jobs anyone can do with common tools.                    |
+| Específicos  | `specific`   | System-specific jobs needing experience or special tools.       |
 
 ## Run it
 
@@ -25,9 +25,10 @@ npm run check    # type check
 
 There are two doors to the same format:
 
-- **Without git:** the site has a form at `/proponer/` ("Proponer una guía"). It builds the guide's Markdown file and
+- **Without git:** the site has a form at `/propose/` ("Proponer una guía"). It builds the guide's Markdown file and
   opens GitHub with it pre-filled, either as an issue (photos can be dragged in) or as a new file for a pull request.
-  Set `repo` and `branch` in `src/lib/site.ts` so its buttons point to your repository.
+  Set `repo` and `branch` in `src/lib/site.ts` so its buttons point to your repository. The form names the file after
+  the (Spanish) title, so rename it to English when you merge the proposal.
 - **With files** (by hand or with an AI agent): the layout described below.
 
 No code changes needed. Vehicles are organised as **brand / model / version**, because the same model often exists in several versions (carburetted vs fuel injected, different forks, engines or model years) whose data and procedures differ:
@@ -37,22 +38,22 @@ src/content/vehicles/
 └── honda/                         <- brand
     └── cb190r/                    <- model
         ├── guides/                <- guides shared by EVERY version of the model
-        │   └── lavado.md
+        │   └── washing.md
         ├── images/                <- images used by the shared guides
-        ├── carburada/             <- one folder per version
+        ├── carbureted/            <- one folder per version
         │   ├── vehicle.yaml       <- data of this version
         │   ├── guides/            <- guides of this version only
-        │   │   ├── cambiar-aceite.md
+        │   │   ├── change-oil.md
         │   │   └── ajustar-carburador.md
         │   └── images/
         │       ├── cover.jpg
-        │       └── tapon-drenaje.jpg
+        │       └── drain-plug.jpg
         └── inyeccion/
             ├── vehicle.yaml
             └── guides/
 ```
 
-Folder and file names become the URL (`/honda/cb190r/carburada/cambiar-aceite/`): lowercase, hyphens, no accents. `guides` and `images` are reserved names and cannot be used for a version.
+Folder and file names become the URL (`/honda/cb190r/carbureted/change-oil/`): English, lowercase, hyphens, no accents. Only the texts inside the files are in Spanish. `guides` and `images` are reserved names and cannot be used for a version.
 
 - **Adding a version** of an existing model: create its folder with a `vehicle.yaml`. It immediately gets all the shared guides.
 - **Shared or not?** Put a guide in the model's `guides/` only when it is correct for every version. When in doubt, keep it in the version folder.
@@ -64,7 +65,7 @@ Folder and file names become the URL (`/honda/cb190r/carburada/cambiar-aceite/`)
 brand: Honda
 model: CB190R
 version: Carburada # what tells this version apart
-type: moto # moto | auto | camioneta | otro
+type: motorcycle # motorcycle | car | truck | other
 years: 2016–2023 # optional
 aliases: # optional, other names of the same model in other markets
   - { name: Rouser NS 200, markets: "Argentina, Filipinas" }
@@ -89,7 +90,7 @@ source: Manual de servicio Honda CB190R # where the data comes from
 ---
 title: Cambiar el aceite
 summary: One sentence describing the job.
-category: rutina # rutina | basico | especifico
+category: routine # routine | basic | specific
 difficulty: 1 # 1 easy · 2 intermediate · 3 workshop level
 time: 30 min # optional
 interval: Cada 3000 km # optional
@@ -118,7 +119,7 @@ order: 10 # optional, lower shows first within its category
 
 1. Each numbered item becomes a checkable step.
 
-   ![Describe what the photo shows](../images/tapon-drenaje.jpg)
+   ![Describe what the photo shows](../images/drain-plug.jpg)
 
 2. Readers can tick steps off; progress is saved in their browser.
 

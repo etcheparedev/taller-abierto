@@ -1,0 +1,45 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import BrandMark from '../../../components/BrandMark.astro';
+import { getBrands, type Brand } from '../../../lib/content';
+import { url } from '../../../lib/site';
+import { VEHICLE_TYPES, VEHICLE_TYPE_IDS } from '../../../lib/vehicleTypes';
+
+export async function getStaticPaths() {
+  const types = await Promise.all(VEHICLE_TYPE_IDS.map(async (id) => ({ id, brands: await getBrands(id) })));
+  return types
+    .filter((type) => type.brands.length > 0)
+    .map(({ id, brands }) => ({
+      params: { type: VEHICLE_TYPES[id].slug },
+      props: { label: VEHICLE_TYPES[id].label, brands },
+    }));
+}
+
+interface Props {
+  label: string;
+  brands: Brand[];
+}
+
+const { label, brands } = Astro.props;
+---
+
+<Layout title={label} description={`Marcas de ${label.toLowerCase()} con guías de mantenimiento.`}>
+  <div class="wrap page-head">
+    <nav class="crumbs" aria-label="Ruta">
+      <a href={url()}>Inicio</a><span aria-hidden="true">/</span>
+      <a href={url('vehicles')}>Vehículos</a><span aria-hidden="true">/</span>
+      <span>{label}</span>
+    </nav>
+    <div>
+      <span class="eyebrow">Vehículos</span>
+      <h1>{label}</h1>
+    </div>
+    <p class="muted">Elige una marca.</p>
+  </div>
+
+  <div class="wrap" style="padding-bottom: 4rem">
+    <div class="brand-wall" data-reveal>
+      {brands.map((brand) => <BrandMark brand={brand} />)}
+    </div>
+  </div>
+</Layout>

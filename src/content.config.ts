@@ -31,7 +31,7 @@ const vehicles = defineCollection({
   loader: glob({
     base: './src/content/vehicles',
     pattern: '*/*/*/vehicle.yaml',
-    // "bajaj/pulsar-ns-200/carburada/vehicle.yaml" -> "bajaj/pulsar-ns-200/carburada"
+    // "bajaj/pulsar-ns-200/carbureted/vehicle.yaml" -> "bajaj/pulsar-ns-200/carbureted"
     generateId: ({ entry }) => entry.replace(/\/vehicle\.yaml$/, ''),
   }),
   schema: ({ image }) =>
@@ -40,7 +40,7 @@ const vehicles = defineCollection({
       model: z.string(),
       /** What tells this version apart, e.g. "Carburada", "FI ABS", "2.0 TDI". */
       version: z.string(),
-      type: z.enum(['moto', 'auto', 'camioneta', 'otro']),
+      type: z.enum(['motorcycle', 'car', 'truck', 'other']),
       years: z.string().optional(),
       /**
        * Other names the same model is sold under, and where. Declare them in any
@@ -64,8 +64,8 @@ const guides = defineCollection({
   loader: glob({
     base: './src/content/vehicles',
     pattern: ['*/*/guides/*.md', '*/*/*/guides/*.md'],
-    // shared:  "bajaj/pulsar-ns-200/guides/lavado.md"              -> "bajaj/pulsar-ns-200/lavado"
-    // version: "bajaj/pulsar-ns-200/carburada/guides/bujias.md"    -> "bajaj/pulsar-ns-200/carburada/bujias"
+    // shared:  "bajaj/pulsar-ns-200/guides/washing.md"              -> "bajaj/pulsar-ns-200/washing"
+    // version: "bajaj/pulsar-ns-200/carbureted/guides/spark-plugs.md"    -> "bajaj/pulsar-ns-200/carbureted/spark-plugs"
     generateId: ({ entry }) => entry.replace('/guides/', '/').replace(/\.md$/, ''),
   }),
   schema: z.object({

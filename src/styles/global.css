@@ -9,9 +9,9 @@
   --accent: #ff5a1f;
   --accent-soft: #ff5a1f22;
 
-  --rutina: #3ddc97;
-  --basico: #4db5ff;
-  --especifico: #f5b83d;
+  --routine: #3ddc97;
+  --basic: #4db5ff;
+  --specific: #f5b83d;
 
   --radius: 18px;
   --radius-sm: 10px;
@@ -24,9 +24,9 @@
   color-scheme: dark;
 }
 
-[data-category='rutina'] { --cat: var(--rutina); }
-[data-category='basico'] { --cat: var(--basico); }
-[data-category='especifico'] { --cat: var(--especifico); }
+[data-category='routine'] { --cat: var(--routine); }
+[data-category='basic'] { --cat: var(--basic); }
+[data-category='specific'] { --cat: var(--specific); }
 
 /* ---------- Base ---------- */
 *, *::before, *::after { box-sizing: border-box; }

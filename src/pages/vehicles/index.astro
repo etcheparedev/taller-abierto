@@ -1,0 +1,72 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BrandMark from '../../components/BrandMark.astro';
+import { getBrands } from '../../lib/content';
+import { url } from '../../lib/site';
+import { VEHICLE_TYPES, VEHICLE_TYPE_IDS, type VehicleType } from '../../lib/vehicleTypes';
+
+// Motos and autos are always offered; the other kinds only once they have vehicles.
+const ALWAYS_SHOWN: VehicleType[] = ['motorcycle', 'car'];
+
+const brands = await getBrands();
+const types = (
+  await Promise.all(VEHICLE_TYPE_IDS.map(async (id) => ({ id, brands: await getBrands(id) })))
+).filter((type) => type.brands.length > 0 || ALWAYS_SHOWN.includes(type.id));
+---
+
+<Layout title="Vehículos" description="Elige el tipo de vehículo y la marca para ver sus guías de mantenimiento.">
+  <div class="wrap page-head">
+    <nav class="crumbs" aria-label="Ruta">
+      <a href={url()}>Inicio</a><span aria-hidden="true">/</span><span>Vehículos</span>
+    </nav>
+    <div>
+      <span class="eyebrow">Vehículos</span>
+      <h1>¿Qué vas a reparar?</h1>
+    </div>
+    <p class="muted">Elige el tipo de vehículo y después la marca.</p>
+  </div>
+
+  <div class="wrap">
+    <div class="grid">
+      {
+        types.map(({ id, brands }, i) => {
+          const models = brands.reduce((total, brand) => total + brand.models.length, 0);
+          const empty = brands.length === 0;
+          return (
+            <a
+              class:list={['card vehicle-card', { 'card-empty': empty }]}
+              href={empty ? `${url()}#contribute` : url(`vehicles/${VEHICLE_TYPES[id].slug}`)}
+              data-reveal
+              style={`--d:${i % 6}`}
+            >
+              <div>
+                <span class="brand">Tipo</span>
+                <h3>{VEHICLE_TYPES[id].label}</h3>
+              </div>
+              <p>
+                {empty
+                  ? 'Todavía no hay vehículos de este tipo.'
+                  : `${brands.length} ${brands.length === 1 ? 'marca' : 'marcas'} · ${models} ${models === 1 ? 'modelo' : 'modelos'}`}
+              </p>
+              <span class="go">
+                {empty ? 'Sumar el primero' : 'Ver marcas'} <span aria-hidden="true">→</span>
+              </span>
+            </a>
+          );
+        })
+      }
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <span class="eyebrow">Marcas</span>
+        <h2>Todas las marcas</h2>
+      </div>
+      <div class="brand-wall" data-reveal>
+        {brands.map((brand) => <BrandMark brand={brand} />)}
+      </div>
+    </div>
+  </section>
+</Layout>
