@@ -1,0 +1,37 @@
+---
+import { CATEGORIES, DIFFICULTY_LABELS } from '../lib/categories';
+import { guideSlugOf, type Guide, type Vehicle } from '../lib/content';
+import { url } from '../lib/site';
+
+interface Props {
+  guide: Guide;
+  /** The version this card is listed under (a shared guide belongs to several). */
+  vehicle: Vehicle;
+  index?: number;
+}
+
+const { guide, vehicle, index = 0 } = Astro.props;
+const { title, summary, category, difficulty, time, interval, videos } = guide.data;
+---
+
+<a
+  class="card"
+  href={url(`${vehicle.id}/${guideSlugOf(guide)}`)}
+  data-category={category}
+  data-reveal
+  style={`--d:${index % 6}`}
+>
+  <span class="badge" data-category={category}>{CATEGORIES[category].label}</span>
+  <h3 transition:name={`title-${guideSlugOf(guide)}`}>{title}</h3>
+  <p>{summary}</p>
+  <div class="meta">
+    <span>
+      <span class="dots">{[1, 2, 3].map((n) => <i class={n <= difficulty ? 'on' : ''} />)}</span>
+      {DIFFICULTY_LABELS[difficulty]}
+    </span>
+    {time && <span>{time}</span>}
+    {interval && <span>{interval}</span>}
+    {videos.length > 0 && <span>▶ Video</span>}
+  </div>
+  <span class="go">Ver guía <span aria-hidden="true">→</span></span>
+</a>

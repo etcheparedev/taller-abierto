@@ -1,0 +1,57 @@
+---
+import { youtubeId } from '../lib/video';
+
+interface Props {
+  videos: { title: string; url: string; author?: string }[];
+}
+
+const { videos } = Astro.props;
+---
+
+<section class="videos">
+  <h2>Videos de referencia</h2>
+  <p class="muted">Videos de la comunidad. Pueden diferir del manual: ante la duda, valen los datos de esta guía.</p>
+  <div class="video-grid">
+    {
+      videos.map((video) => {
+        const id = youtubeId(video.url);
+        return id ? (
+          <figure class="video">
+            {/* The player loads only after a click, so YouTube sets no cookies until then. */}
+            <button type="button" class="video-facade" data-youtube={id} aria-label={`Reproducir: ${video.title}`}>
+              <img src={`https://i.ytimg.com/vi/${id}/hqdefault.jpg`} alt="" loading="lazy" />
+              <span class="play" aria-hidden="true" />
+            </button>
+            <figcaption>
+              {video.title}
+              {video.author && <small> · {video.author}</small>}
+            </figcaption>
+          </figure>
+        ) : (
+          <a class="video video-link" href={video.url} target="_blank" rel="noopener">
+            <span class="play" aria-hidden="true" />
+            <span>
+              {video.title}
+              {video.author && <small> · {video.author}</small>}
+            </span>
+          </a>
+        );
+      })
+    }
+  </div>
+</section>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    document.querySelectorAll<HTMLButtonElement>('.video-facade').forEach((facade) => {
+      facade.addEventListener('click', () => {
+        const iframe = document.createElement('iframe');
+        iframe.src = `https://www.youtube-nocookie.com/embed/${facade.dataset.youtube}?autoplay=1`;
+        iframe.title = facade.getAttribute('aria-label') ?? 'Video';
+        iframe.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+        iframe.allowFullscreen = true;
+        facade.replaceWith(iframe);
+      });
+    });
+  });
+</script>

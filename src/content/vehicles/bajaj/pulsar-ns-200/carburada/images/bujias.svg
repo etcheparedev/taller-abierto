@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="330" viewBox="0 0 800 330" font-family="system-ui, sans-serif">
+  <rect width="800" height="330" rx="16" fill="#12161b"/>
+  <text x="40" y="46" fill="#e9eef3" font-size="20" font-weight="700">Las tres bujías y la holgura del electrodo</text>
+
+  <!-- cylinder head seen from above -->
+  <circle cx="180" cy="195" r="100" fill="#181d24" stroke="#242b35" stroke-width="2"/>
+  <g fill="none" stroke="#242b35" stroke-width="2">
+    <circle cx="140" cy="145" r="24"/>
+    <circle cx="220" cy="145" r="24"/>
+    <circle cx="140" cy="245" r="24"/>
+    <circle cx="220" cy="245" r="24"/>
+  </g>
+  <circle cx="105" cy="195" r="12" fill="#4db5ff"/>
+  <circle cx="255" cy="195" r="12" fill="#4db5ff"/>
+  <circle cx="180" cy="195" r="15" fill="#f5b83d"/>
+  <text x="180" y="318" fill="#8d99a8" font-size="13" text-anchor="middle">Culata vista desde arriba</text>
+
+  <!-- legend -->
+  <circle cx="340" cy="95" r="8" fill="#4db5ff"/>
+  <text x="358" y="100" fill="#e9eef3" font-size="15">2 laterales: Champion PRG6HCC</text>
+  <circle cx="340" cy="127" r="8" fill="#f5b83d"/>
+  <text x="358" y="132" fill="#e9eef3" font-size="15">1 central: Bosch YR5NE o Champion RER6YCA</text>
+
+  <!-- electrode gap -->
+  <rect x="534" y="268" width="56" height="34" rx="4" fill="#8d99a8"/>
+  <rect x="550" y="214" width="24" height="56" fill="#e9eef3"/>
+  <path d="M598 300 V187 H548" fill="none" stroke="#e9eef3" stroke-width="10"/>
+  <path d="M520 192 V214 M513 192 H527 M513 214 H527" stroke="#3ddc97" stroke-width="2"/>
+  <text x="504" y="208" fill="#3ddc97" font-size="16" font-weight="700" text-anchor="end">0.7 – 0.8 mm</text>
+  <text x="620" y="208" fill="#8d99a8" font-size="13">Holgura</text>
+</svg>

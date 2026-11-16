@@ -1,0 +1,117 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Carousel from '../components/Carousel.astro';
+import BrandMark from '../components/BrandMark.astro';
+import Tachometer from '../components/Tachometer.astro';
+import { CATEGORIES, CATEGORY_IDS } from '../lib/categories';
+import { getBrands } from '../lib/content';
+import { SITE, url } from '../lib/site';
+
+const brands = await getBrands();
+
+// Each word animates in on its own; ACCENT_WORDS get the accent color.
+const headline = ['Repáralo', 'tú', 'mismo.', 'Paso', 'a', 'paso.'];
+const ACCENT_WORDS = new Set([1, 2]);
+---
+
+<Layout>
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Manuales de servicio abiertos</span>
+        <h1>
+          {
+            headline.map((word, i) => (
+              <>
+                <span class="rise">
+                  <span style={`--i:${i}`}>{ACCENT_WORDS.has(i) ? <em>{word}</em> : word}</span>
+                </span>{' '}
+              </>
+            ))
+          }
+        </h1>
+        <p class="lead">
+          Guías de mantenimiento claras para tu vehículo, con los datos del manual de servicio: torques, medidas e
+          intervalos. Sin registro y sin publicidad.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href={url('vehiculos')}>Elegir vehículo <span class="arrow" aria-hidden="true">→</span></a>
+          <a class="btn" href="#sumar">Sumar un vehículo</a>
+        </div>
+      </div>
+      <Tachometer />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <span class="eyebrow">Cómo se organiza</span>
+        <h2>Tres tipos de mantenimiento</h2>
+      </div>
+      <div class="cats">
+        {
+          CATEGORY_IDS.map((id, i) => (
+            <article class="cat" data-category={id} data-reveal style={`--d:${i}`}>
+              <span class="num">0{i + 1}</span>
+              <h3>{CATEGORIES[id].plural}</h3>
+              <p>{CATEGORIES[id].description}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="marcas">
+    <div class="wrap">
+      <Carousel label="Marcas">
+        <div class="section-head" slot="head" data-reveal>
+          <span class="eyebrow">Marcas</span>
+          <h2>Elige la tuya</h2>
+        </div>
+        <a class="btn btn-small" slot="action" href={url('vehiculos')}>
+          Ver todas <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        {brands.map((brand) => <BrandMark brand={brand} />)}
+      </Carousel>
+    </div>
+  </section>
+
+  <section class="section" id="sumar">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <span class="eyebrow">Proyecto abierto</span>
+        <h2>Sumar un vehículo es agregar una carpeta</h2>
+        <p class="muted">
+          Hay dos caminos. Si no usas git, escribe la guía en un formulario y envíala. Si prefieres los archivos (o
+          trabajas con un agente), cada vehículo es un archivo de datos y un archivo Markdown por guía.
+        </p>
+      </div>
+      <ol class="steps3">
+        <li data-reveal style="--d:0">
+          <h3>Crea la carpeta</h3>
+          <p>
+            <code>src/content/vehicles/marca/modelo/version/</code> con un <code>vehicle.yaml</code>: marca, modelo,
+            versión y datos técnicos.
+          </p>
+        </li>
+        <li data-reveal style="--d:1">
+          <h3>Escribe las guías</h3>
+          <p>
+            Un <code>.md</code> por tarea dentro de <code>guides/</code>, con sus pasos numerados, fotos y videos. Las
+            que sirven para todas las versiones van una sola vez, a nivel del modelo.
+          </p>
+        </li>
+        <li data-reveal style="--d:2">
+          <h3>Abre un pull request</h3>
+          <p>El build valida el formato por ti. Si pasa, las páginas del vehículo se generan automáticamente.</p>
+        </li>
+      </ol>
+      <div class="hero-actions" data-reveal>
+        <a class="btn btn-primary" href={url('proponer')}>Proponer una guía <span class="arrow" aria-hidden="true">→</span></a>
+        <a class="btn" href={SITE.repo} rel="noopener">Ver el repositorio <span class="arrow" aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+</Layout>

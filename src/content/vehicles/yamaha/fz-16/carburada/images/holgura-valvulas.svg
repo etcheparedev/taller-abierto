@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="270" viewBox="0 0 800 270" font-family="system-ui, sans-serif">
+  <rect width="800" height="270" rx="16" fill="#12161b"/>
+  <text x="40" y="46" fill="#e9eef3" font-size="20" font-weight="700">Holgura de válvulas (motor frío)</text>
+
+  <g fill="#181d24" stroke="#242b35" stroke-width="1.5">
+    <rect x="40" y="72" width="350" height="140" rx="12"/>
+    <rect x="410" y="72" width="350" height="140" rx="12"/>
+  </g>
+
+  <!-- intake -->
+  <text x="64" y="106" fill="#4db5ff" font-size="15" font-weight="600">Admisión</text>
+  <text x="64" y="156" fill="#e9eef3" font-size="32" font-weight="700">0.08 – 0.12 mm</text>
+  <!-- adjuster sketch -->
+  <g stroke="#4db5ff" stroke-width="3" fill="none" stroke-linecap="round">
+    <path d="M318 96 V150"/>
+    <path d="M304 118 H332"/>
+    <path d="M318 166 V196"/>
+    <path d="M300 166 H336"/>
+  </g>
+  <path d="M344 150 H366 M344 166 H366" stroke="#8d99a8" stroke-width="1.5"/>
+  <text x="64" y="192" fill="#8d99a8" font-size="13">entre tornillo de ajuste y punta de válvula</text>
+
+  <!-- exhaust -->
+  <text x="434" y="106" fill="#ff5a1f" font-size="15" font-weight="600">Escape</text>
+  <text x="434" y="156" fill="#e9eef3" font-size="32" font-weight="700">0.12 – 0.16 mm</text>
+  <g stroke="#ff5a1f" stroke-width="3" fill="none" stroke-linecap="round">
+    <path d="M688 96 V148"/>
+    <path d="M674 118 H702"/>
+    <path d="M688 168 V196"/>
+    <path d="M670 168 H706"/>
+  </g>
+  <path d="M714 148 H736 M714 168 H736" stroke="#8d99a8" stroke-width="1.5"/>
+  <text x="434" y="192" fill="#8d99a8" font-size="13">entre tornillo de ajuste y punta de válvula</text>
+
+  <text x="40" y="246" fill="#8d99a8" font-size="13">Pistón en el punto muerto superior de compresión · contratuerca a 13 N·m (1.3 kgf·m)</text>
+</svg>

@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="250" viewBox="0 0 800 250" font-family="system-ui, 'Segoe UI', sans-serif">
+  <defs>
+    <linearGradient id="scale" x1="0" x2="1">
+      <stop offset="0" stop-color="#3ddc97"/>
+      <stop offset="1" stop-color="#ff5a1f"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="250" rx="16" fill="#12161b"/>
+  <text x="40" y="46" fill="#e9eef3" font-size="20" font-weight="700">Muescas de precarga del amortiguador trasero</text>
+
+  <!-- factory setting marker -->
+  <text x="143" y="88" fill="#4db5ff" font-size="14" font-weight="600" text-anchor="middle">Ajuste de fábrica</text>
+  <path d="M143 96 v14 m-6 -7 l6 7 l6 -7" fill="none" stroke="#4db5ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- notches -->
+  <g font-size="20" font-weight="700" text-anchor="middle" fill="#e9eef3">
+    <g fill="#181d24" stroke="#242b35" stroke-width="1.5">
+      <rect x="40" y="118" width="62" height="56" rx="10"/>
+      <rect x="112" y="118" width="62" height="56" rx="10" stroke="#4db5ff" stroke-width="2.5"/>
+      <rect x="184" y="118" width="62" height="56" rx="10"/>
+      <rect x="256" y="118" width="62" height="56" rx="10"/>
+      <rect x="328" y="118" width="62" height="56" rx="10"/>
+      <rect x="400" y="118" width="62" height="56" rx="10"/>
+      <rect x="472" y="118" width="62" height="56" rx="10"/>
+      <rect x="544" y="118" width="62" height="56" rx="10"/>
+      <rect x="616" y="118" width="62" height="56" rx="10"/>
+      <rect x="688" y="118" width="62" height="56" rx="10"/>
+    </g>
+    <text x="71" y="153">1</text>
+    <text x="143" y="153">2</text>
+    <text x="215" y="153">3</text>
+    <text x="287" y="153">4</text>
+    <text x="359" y="153">5</text>
+    <text x="431" y="153">6</text>
+    <text x="503" y="153">7</text>
+    <text x="575" y="153">8</text>
+    <text x="647" y="153">9</text>
+    <text x="719" y="153">10</text>
+  </g>
+
+  <rect x="40" y="190" width="710" height="8" rx="4" fill="url(#scale)"/>
+  <text x="40" y="224" fill="#3ddc97" font-size="15" font-weight="600">Más suave</text>
+  <text x="750" y="224" fill="#ff5a1f" font-size="15" font-weight="600" text-anchor="end">Más rígido</text>
+</svg>

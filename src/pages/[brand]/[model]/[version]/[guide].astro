@@ -1,0 +1,266 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../../../layouts/Layout.astro';
+import DataTable from '../../../../components/DataTable.astro';
+import VideoList from '../../../../components/VideoList.astro';
+import { CATEGORIES, DIFFICULTY_LABELS } from '../../../../lib/categories';
+import { brandSlugOf, getGuidesOf, guideSlugOf, modelIdOf, type Guide, type Vehicle } from '../../../../lib/content';
+import { url } from '../../../../lib/site';
+
+export async function getStaticPaths() {
+  const vehicles = await getCollection('vehicles');
+  const paths = [];
+  for (const vehicle of vehicles) {
+    const [brand, model, version] = vehicle.id.split('/');
+    const guides = await getGuidesOf(vehicle);
+    for (const [i, guide] of guides.entries()) {
+      paths.push({
+        params: { brand, model, version, guide: guideSlugOf(guide) },
+        props: { vehicle, guide, prev: guides[i - 1], next: guides[i + 1] },
+      });
+    }
+  }
+  return paths;
+}
+
+interface Props {
+  vehicle: Vehicle;
+  guide: Guide;
+  prev?: Guide;
+  next?: Guide;
+}
+
+const { vehicle, guide, prev, next } = Astro.props;
+const { title, summary, category, difficulty, time, interval, tools, warnings, specs, tables, videos, sourcePages, author } =
+  guide.data;
+const { Content } = await render(guide);
+const { brand, model, version } = vehicle.data;
+const vehicleName = `${brand} ${model} ${version}`;
+const href = (g: Guide) => url(`${vehicle.id}/${guideSlugOf(g)}`);
+---
+
+<Layout title={`${title} · ${vehicleName}`} description={summary}>
+  <div data-category={category}>
+    <div class="wrap page-head">
+      <nav class="crumbs" aria-label="Ruta">
+        <a href={url()}>Inicio</a><span aria-hidden="true">/</span>
+        <a href={url(brandSlugOf(vehicle))}>{brand}</a><span aria-hidden="true">/</span>
+        <a href={url(modelIdOf(vehicle))}>{model}</a><span aria-hidden="true">/</span>
+        <a href={url(vehicle.id)}>{version}</a><span aria-hidden="true">/</span>
+        <span>{CATEGORIES[category].plural}</span>
+      </nav>
+      <div><span class="badge">{CATEGORIES[category].label}</span></div>
+      <h1 transition:name={`title-${guideSlugOf(guide)}`} style="font-size: clamp(2rem, 5.5vw, 3.4rem)">{title}</h1>
+      <p class="muted" style="max-width: 62ch; font-size: 1.15rem">{summary}</p>
+      <div class="meta">
+        <span>
+          <span class="dots">{[1, 2, 3].map((n) => <i class={n <= difficulty ? 'on' : ''} />)}</span>
+          {DIFFICULTY_LABELS[difficulty]}
+        </span>
+        {time && <span>Tiempo: {time}</span>}
+        {interval && <span>Frecuencia: {interval}</span>}
+      </div>
+    </div>
+
+    <div class="wrap guide">
+      <article>
+        {
+          warnings.length > 0 && (
+            <div class="warnings" role="note">
+              <strong>Antes de empezar</strong>
+              <ul>
+                {warnings.map((warning) => (
+                  <li>{warning}</li>
+                ))}
+              </ul>
+            </div>
+          )
+        }
+
+        <div class="prose" id="steps">
+          <Content />
+        </div>
+
+        {videos.length > 0 && <VideoList videos={videos} />}
+
+        {
+          tables.length > 0 && (
+            <div class="tables" style="margin-top: 2.5rem">
+              {tables.map((table) => (
+                <DataTable table={table} />
+              ))}
+            </div>
+          )
+        }
+
+        <p class="source">
+          Fuente: {guide.data.source ?? vehicle.data.source}{sourcePages && `, pág. ${sourcePages} del PDF`}. Guía orientativa: verifica
+          siempre con el manual oficial de tu modelo y año.
+        </p>
+
+        <nav class="pager" aria-label="Otras guías">
+          {
+            prev && (
+              <a href={href(prev)}>
+                <small>← Anterior</small>
+                {prev.data.title}
+              </a>
+            )
+          }
+          {
+            next && (
+              <a class="next" href={href(next)}>
+                <small>Siguiente →</small>
+                {next.data.title}
+              </a>
+            )
+          }
+        </nav>
+      </article>
+
+      <aside>
+        <div class="panel" id="progress-panel" hidden>
+          <h2>Progreso</h2>
+          <div class="progress"><i></i></div>
+          <div class="progress-row">
+            <span id="progress-text"></span>
+            <button type="button" id="progress-reset">Reiniciar</button>
+          </div>
+        </div>
+        {
+          author && (
+            <div class="panel author">
+              <h2>Autor de la guía</h2>
+              <p class="author-name">{author.name}</p>
+              {author.workshop && <p>{author.workshop}</p>}
+              {author.location && <p class="muted">{author.location}</p>}
+              {author.contact && <p class="muted">{author.contact}</p>}
+              {author.links.length > 0 && (
+                <p class="chips">
+                  {author.links.map((link) => (
+                    <a class="chip" href={link.url} rel="noopener nofollow ugc" target="_blank">
+                      {link.label}
+                    </a>
+                  ))}
+                </p>
+              )}
+            </div>
+          )
+        }
+        {
+          tools.length > 0 && (
+            <div class="panel">
+              <h2>Herramientas y materiales</h2>
+              <ul>
+                {tools.map((tool) => (
+                  <li>{tool}</li>
+                ))}
+              </ul>
+            </div>
+          )
+        }
+        {
+          specs.length > 0 && (
+            <div class="panel">
+              <h2>Datos clave</h2>
+              <dl class="speclist">
+                {specs.map((s) => (
+                  <div>
+                    <dt>{s.label}</dt>
+                    <dd>{s.value}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          )
+        }
+      </aside>
+    </div>
+  </div>
+
+  <dialog class="lightbox" id="lightbox" aria-label="Imagen ampliada">
+    <img alt="" />
+  </dialog>
+</Layout>
+
+<script>
+  // Click on a guide image to see it full size.
+  document.addEventListener('astro:page-load', () => {
+    const lightbox = document.getElementById('lightbox') as HTMLDialogElement | null;
+    const big = lightbox?.querySelector('img');
+    if (!lightbox || !big) return;
+
+    document.querySelectorAll<HTMLImageElement>('#steps img').forEach((img) => {
+      img.addEventListener('click', () => {
+        big.src = img.currentSrc || img.src;
+        big.alt = img.alt;
+        lightbox.showModal();
+      });
+    });
+    lightbox.addEventListener('click', () => lightbox.close());
+  });
+
+  // Turns every top-level numbered list of the guide into a checklist whose
+  // progress is remembered in this browser.
+  document.addEventListener('astro:page-load', () => {
+    const steps = [...document.querySelectorAll<HTMLElement>('#steps > ol > li')];
+    const panel = document.getElementById('progress-panel');
+    if (!panel || steps.length === 0) return;
+
+    const key = `steps:${location.pathname}`;
+    const bar = panel.querySelector<HTMLElement>('.progress i')!;
+    const text = document.getElementById('progress-text')!;
+    const isDone = (step: HTMLElement) => step.getAttribute('aria-checked') === 'true';
+
+    const load = (): number[] => {
+      try {
+        return JSON.parse(localStorage.getItem(key) ?? '[]');
+      } catch {
+        return [];
+      }
+    };
+    const save = () => {
+      try {
+        localStorage.setItem(key, JSON.stringify(steps.flatMap((step, i) => (isDone(step) ? [i] : []))));
+      } catch {
+        // Storage unavailable: progress just won't persist.
+      }
+    };
+    const update = () => {
+      const done = steps.filter(isDone).length;
+      bar.style.width = `${(done / steps.length) * 100}%`;
+      text.textContent = done === steps.length ? 'Todos los pasos completos' : `${done} de ${steps.length} pasos`;
+    };
+
+    const saved = load();
+    steps.forEach((step, i) => {
+      step.setAttribute('role', 'checkbox');
+      step.setAttribute('tabindex', '0');
+      step.setAttribute('aria-checked', String(saved.includes(i)));
+
+      const toggle = () => {
+        step.setAttribute('aria-checked', String(!isDone(step)));
+        save();
+        update();
+      };
+      step.addEventListener('click', (event) => {
+        if ((event.target as HTMLElement).closest('a, img')) return;
+        toggle();
+      });
+      step.addEventListener('keydown', (event) => {
+        if (event.key !== ' ' && event.key !== 'Enter') return;
+        event.preventDefault();
+        toggle();
+      });
+    });
+
+    document.getElementById('progress-reset')?.addEventListener('click', () => {
+      steps.forEach((step) => step.setAttribute('aria-checked', 'false'));
+      save();
+      update();
+    });
+
+    panel.hidden = false;
+    update();
+  });
+</script>

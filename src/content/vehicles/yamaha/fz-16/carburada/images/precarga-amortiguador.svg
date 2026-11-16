@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="250" viewBox="0 0 800 250" font-family="system-ui, sans-serif">
+  <defs>
+    <linearGradient id="scale" x1="0" x2="1">
+      <stop offset="0" stop-color="#3ddc97"/>
+      <stop offset="1" stop-color="#ff5a1f"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="250" rx="16" fill="#12161b"/>
+  <text x="40" y="46" fill="#e9eef3" font-size="20" font-weight="700">Posiciones de precarga del amortiguador trasero</text>
+
+  <!-- standard setting marker -->
+  <text x="398" y="88" fill="#4db5ff" font-size="14" font-weight="600" text-anchor="middle">Estándar</text>
+  <path d="M398 96 v14 m-6 -7 l6 7 l6 -7" fill="none" stroke="#4db5ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- positions -->
+  <g fill="#181d24" stroke="#242b35" stroke-width="1.5">
+    <rect x="40" y="118" width="92" height="56" rx="10"/>
+    <rect x="144" y="118" width="92" height="56" rx="10"/>
+    <rect x="248" y="118" width="92" height="56" rx="10"/>
+    <rect x="352" y="118" width="92" height="56" rx="10" stroke="#4db5ff" stroke-width="2.5"/>
+    <rect x="456" y="118" width="92" height="56" rx="10"/>
+    <rect x="560" y="118" width="92" height="56" rx="10"/>
+    <rect x="664" y="118" width="92" height="56" rx="10"/>
+  </g>
+  <g font-size="20" font-weight="700" text-anchor="middle" fill="#e9eef3">
+    <text x="86" y="153">1</text>
+    <text x="190" y="153">2</text>
+    <text x="294" y="153">3</text>
+    <text x="398" y="153">4</text>
+    <text x="502" y="153">5</text>
+    <text x="606" y="153">6</text>
+    <text x="710" y="153">7</text>
+  </g>
+
+  <rect x="40" y="190" width="716" height="8" rx="4" fill="url(#scale)"/>
+  <text x="40" y="224" fill="#3ddc97" font-size="15" font-weight="600">Más blando</text>
+  <text x="756" y="224" fill="#ff5a1f" font-size="15" font-weight="600" text-anchor="end">Más duro</text>
+</svg>

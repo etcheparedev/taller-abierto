@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="560" viewBox="0 0 800 560" font-family="system-ui, 'Segoe UI', sans-serif">
+  <rect width="800" height="560" rx="16" fill="#12161b"/>
+  <text x="40" y="46" fill="#e9eef3" font-size="20" font-weight="700">Columna de dirección: orden de las piezas</text>
+
+  <!-- centre line -->
+  <line x1="220" y1="70" x2="220" y2="530" stroke="#242b35" stroke-width="2" stroke-dasharray="6 6"/>
+
+  <!-- parts, top to bottom -->
+  <g stroke-width="2">
+    <rect x="190" y="78" width="60" height="26" rx="5" fill="#181d24" stroke="#ff5a1f"/>
+    <rect x="90" y="118" width="260" height="30" rx="8" fill="#181d24" stroke="#8d99a8"/>
+    <rect x="180" y="162" width="80" height="22" rx="4" fill="#181d24" stroke="#ff5a1f"/>
+    <rect x="170" y="198" width="100" height="14" rx="7" fill="#181d24" stroke="#8d99a8"/>
+    <rect x="175" y="226" width="90" height="18" rx="4" fill="#181d24" stroke="#8d99a8"/>
+    <rect x="165" y="258" width="110" height="26" rx="13" fill="#181d24" stroke="#4db5ff"/>
+    <rect x="180" y="298" width="80" height="120" rx="6" fill="#181d24" stroke="#8d99a8"/>
+    <rect x="165" y="432" width="110" height="26" rx="13" fill="#181d24" stroke="#4db5ff"/>
+    <rect x="90" y="472" width="260" height="30" rx="8" fill="#181d24" stroke="#8d99a8"/>
+  </g>
+  <!-- balls -->
+  <g fill="#4db5ff">
+    <circle cx="182" cy="271" r="5"/><circle cx="201" cy="271" r="5"/><circle cx="220" cy="271" r="5"/><circle cx="239" cy="271" r="5"/><circle cx="258" cy="271" r="5"/>
+    <circle cx="182" cy="445" r="5"/><circle cx="201" cy="445" r="5"/><circle cx="220" cy="445" r="5"/><circle cx="239" cy="445" r="5"/><circle cx="258" cy="445" r="5"/>
+  </g>
+
+  <!-- leader lines -->
+  <g stroke="#242b35" stroke-width="1.5">
+    <line x1="252" y1="91" x2="400" y2="91"/>
+    <line x1="352" y1="133" x2="400" y2="133"/>
+    <line x1="262" y1="173" x2="400" y2="173"/>
+    <line x1="272" y1="205" x2="400" y2="205"/>
+    <line x1="267" y1="235" x2="400" y2="235"/>
+    <line x1="277" y1="271" x2="400" y2="271"/>
+    <line x1="262" y1="358" x2="400" y2="358"/>
+    <line x1="277" y1="445" x2="400" y2="445"/>
+    <line x1="352" y1="487" x2="400" y2="487"/>
+  </g>
+
+  <!-- labels -->
+  <g font-size="15" fill="#e9eef3">
+    <text x="410" y="96"><tspan fill="#ff5a1f" font-weight="700">Tuerca cuna</tspan> · 4.8 – 5.2 kgf·m</text>
+    <text x="410" y="138">Puente superior con el manubrio</text>
+    <text x="410" y="178"><tspan fill="#ff5a1f" font-weight="700">Tuerca ranurada</tspan> · 0.5 kgf·m</text>
+    <text x="410" y="210">Guardapolvo</text>
+    <text x="410" y="240">Pista superior</text>
+    <text x="410" y="276"><tspan fill="#4db5ff" font-weight="700">Canastilla superior</tspan> · 19 bolas</text>
+    <text x="410" y="363">Tubo de dirección del chasis (con sus cunas)</text>
+    <text x="410" y="450"><tspan fill="#4db5ff" font-weight="700">Canastilla inferior</tspan> · 20 bolas</text>
+    <text x="410" y="492">Puente inferior con la horquilla</text>
+  </g>
+
+  <text x="410" y="530" fill="#8d99a8" font-size="14">Grasa para los rodamientos: HP Lithon RR3</text>
+</svg>

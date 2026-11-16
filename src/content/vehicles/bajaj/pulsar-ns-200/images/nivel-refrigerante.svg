@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="300" viewBox="0 0 800 300" font-family="system-ui, sans-serif">
+  <rect width="800" height="300" rx="16" fill="#12161b"/>
+  <text x="40" y="46" fill="#e9eef3" font-size="20" font-weight="700">Nivel en el tanque de expansión</text>
+
+  <!-- tank -->
+  <rect x="160" y="66" width="60" height="18" rx="4" fill="#8d99a8"/>
+  <rect x="80" y="82" width="220" height="180" rx="18" fill="#181d24" stroke="#8d99a8" stroke-width="2.5"/>
+  <rect x="84" y="152" width="212" height="106" rx="14" fill="#3ddc97" opacity="0.28"/>
+  <path d="M84 152 H296" stroke="#3ddc97" stroke-width="2.5"/>
+
+  <!-- marks -->
+  <g stroke="#e9eef3" stroke-width="2" stroke-dasharray="6 5">
+    <path d="M80 122 H330"/>
+    <path d="M80 217 H330"/>
+  </g>
+  <g fill="#e9eef3" font-size="15" font-weight="700">
+    <text x="340" y="127">MAX</text>
+    <text x="340" y="222">MIN</text>
+  </g>
+  <path d="M400 122 V217 M393 122 H407 M393 217 H407" stroke="#3ddc97" stroke-width="2"/>
+  <text x="414" y="166" fill="#3ddc97" font-size="15" font-weight="700">Nivel</text>
+  <text x="414" y="185" fill="#3ddc97" font-size="15" font-weight="700">correcto</text>
+
+  <!-- conditions -->
+  <g fill="#e9eef3" font-size="15">
+    <text x="530" y="122">✓ Motor frío</text>
+    <text x="530" y="158">✓ Moto vertical y nivelada</text>
+    <text x="530" y="194">✓ Completar por el tanque,</text>
+    <text x="549" y="214">nunca por el radiador</text>
+  </g>
+</svg>

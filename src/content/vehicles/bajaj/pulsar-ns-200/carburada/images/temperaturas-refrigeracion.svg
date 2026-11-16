@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="300" viewBox="0 0 800 300" font-family="system-ui, sans-serif">
+  <defs>
+    <linearGradient id="heat" x1="0" x2="1">
+      <stop offset="0" stop-color="#4db5ff"/>
+      <stop offset="0.55" stop-color="#f5b83d"/>
+      <stop offset="1" stop-color="#ff5a1f"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="300" rx="16" fill="#12161b"/>
+  <text x="40" y="46" fill="#e9eef3" font-size="20" font-weight="700">Qué pasa a cada temperatura</text>
+
+  <!-- scale: 70 °C at x=60, 120 °C at x=740 -->
+  <rect x="60" y="150" width="680" height="10" rx="5" fill="url(#heat)"/>
+  <g fill="#8d99a8" font-size="12" text-anchor="middle">
+    <text x="60" y="182">70 °C</text>
+    <text x="740" y="182">120 °C</text>
+  </g>
+
+  <g stroke="#e9eef3" stroke-width="2">
+    <path d="M223 150 V118"/>
+    <path d="M414 150 V84"/>
+    <path d="M672 150 V118"/>
+    <path d="M359 160 V206"/>
+    <path d="M441 160 V246"/>
+  </g>
+  <g fill="#e9eef3" stroke="#12161b" stroke-width="2">
+    <circle cx="223" cy="155" r="6"/>
+    <circle cx="359" cy="155" r="6"/>
+    <circle cx="414" cy="155" r="6"/>
+    <circle cx="441" cy="155" r="6"/>
+    <circle cx="672" cy="155" r="6"/>
+  </g>
+
+  <g font-size="14">
+    <text x="223" y="92" text-anchor="middle" fill="#e9eef3"><tspan font-weight="700">82 °C</tspan></text>
+    <text x="223" y="110" text-anchor="middle" fill="#8d99a8">el termostato empieza a abrir</text>
+
+    <text x="422" y="88" fill="#e9eef3"><tspan font-weight="700">96 °C</tspan><tspan fill="#8d99a8"> termostato abierto del todo</tspan></text>
+
+    <text x="672" y="92" text-anchor="middle" fill="#ff5a1f"><tspan font-weight="700">115 °C</tspan></text>
+    <text x="672" y="110" text-anchor="middle" fill="#ff5a1f">aviso en el tablero</text>
+
+    <text x="351" y="211" text-anchor="end" fill="#e9eef3"><tspan fill="#8d99a8">se apaga el ventilador </tspan><tspan font-weight="700">92 °C</tspan></text>
+
+    <text x="449" y="251" fill="#e9eef3"><tspan font-weight="700">98 °C</tspan><tspan fill="#8d99a8"> se enciende el ventilador</tspan></text>
+  </g>
+</svg>

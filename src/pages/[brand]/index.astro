@@ -1,0 +1,43 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ModelCard from '../../components/ModelCard.astro';
+import { getModels, type Model } from '../../lib/content';
+import { url } from '../../lib/site';
+
+export async function getStaticPaths() {
+  const models = await getModels();
+  const brands = [...new Set(models.map((model) => model.brandSlug))];
+  return brands.map((brand) => ({
+    params: { brand },
+    props: { models: models.filter((model) => model.brandSlug === brand) },
+  }));
+}
+
+interface Props {
+  models: Model[];
+}
+
+const { models } = Astro.props;
+const brand = models[0].brand;
+---
+
+<Layout title={brand} description={`Guías de mantenimiento para vehículos ${brand}.`}>
+  <div class="wrap page-head">
+    <nav class="crumbs" aria-label="Ruta">
+      <a href={url()}>Inicio</a><span aria-hidden="true">/</span>
+      <a href={url('vehiculos')}>Vehículos</a><span aria-hidden="true">/</span>
+      <span>{brand}</span>
+    </nav>
+    <div>
+      <span class="eyebrow">Marca</span>
+      <h1>{brand}</h1>
+    </div>
+    <p class="muted">Elige un modelo.</p>
+  </div>
+
+  <div class="wrap" style="padding-bottom: 4rem">
+    <div class="grid">
+      {models.map((model, i) => <ModelCard model={model} index={i} />)}
+    </div>
+  </div>
+</Layout>

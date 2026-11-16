@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="360" viewBox="0 0 800 360" font-family="system-ui, sans-serif">
+  <rect width="800" height="360" rx="16" fill="#12161b"/>
+  <text x="40" y="46" fill="#e9eef3" font-size="20" font-weight="700">Cómo se cuentan los parpadeos del testigo de falla</text>
+
+  <!-- legend -->
+  <rect x="40" y="72" width="64" height="22" rx="4" fill="#f5b83d"/>
+  <text x="114" y="89" fill="#e9eef3" font-size="15">Parpadeo largo = 10</text>
+  <rect x="320" y="72" width="18" height="22" rx="4" fill="#4db5ff"/>
+  <text x="348" y="89" fill="#e9eef3" font-size="15">Parpadeo corto = 1</text>
+
+  <!-- code 12 -->
+  <text x="40" y="146" fill="#8d99a8" font-size="13">Código 12</text>
+  <path d="M40 190 H330" stroke="#242b35" stroke-width="2"/>
+  <rect x="60" y="160" width="64" height="30" rx="4" fill="#f5b83d"/>
+  <rect x="150" y="160" width="18" height="30" rx="4" fill="#4db5ff"/>
+  <rect x="190" y="160" width="18" height="30" rx="4" fill="#4db5ff"/>
+  <text x="92" y="212" fill="#f5b83d" font-size="14" font-weight="700" text-anchor="middle">10</text>
+  <text x="159" y="212" fill="#4db5ff" font-size="14" font-weight="700" text-anchor="middle">1</text>
+  <text x="199" y="212" fill="#4db5ff" font-size="14" font-weight="700" text-anchor="middle">1</text>
+  <text x="250" y="182" fill="#3ddc97" font-size="20" font-weight="700">= 12</text>
+
+  <!-- code 21 -->
+  <text x="420" y="146" fill="#8d99a8" font-size="13">Código 21</text>
+  <path d="M420 190 H760" stroke="#242b35" stroke-width="2"/>
+  <rect x="440" y="160" width="64" height="30" rx="4" fill="#f5b83d"/>
+  <rect x="524" y="160" width="64" height="30" rx="4" fill="#f5b83d"/>
+  <rect x="614" y="160" width="18" height="30" rx="4" fill="#4db5ff"/>
+  <text x="472" y="212" fill="#f5b83d" font-size="14" font-weight="700" text-anchor="middle">10</text>
+  <text x="556" y="212" fill="#f5b83d" font-size="14" font-weight="700" text-anchor="middle">10</text>
+  <text x="623" y="212" fill="#4db5ff" font-size="14" font-weight="700" text-anchor="middle">1</text>
+  <text x="672" y="182" fill="#3ddc97" font-size="20" font-weight="700">= 21</text>
+
+  <!-- sequence with several faults -->
+  <text x="40" y="262" fill="#8d99a8" font-size="13">Con dos fallas guardadas (21 y 12), salen de menor a mayor y la serie se repite:</text>
+  <g font-size="18" font-weight="700" text-anchor="middle">
+    <rect x="40" y="280" width="70" height="40" rx="8" fill="#181d24" stroke="#3ddc97" stroke-width="2"/>
+    <text x="75" y="307" fill="#3ddc97">12</text>
+    <rect x="150" y="280" width="70" height="40" rx="8" fill="#181d24" stroke="#3ddc97" stroke-width="2"/>
+    <text x="185" y="307" fill="#3ddc97">21</text>
+    <rect x="260" y="280" width="70" height="40" rx="8" fill="#181d24" stroke="#242b35" stroke-width="2"/>
+    <text x="295" y="307" fill="#8d99a8">12</text>
+    <rect x="370" y="280" width="70" height="40" rx="8" fill="#181d24" stroke="#242b35" stroke-width="2"/>
+    <text x="405" y="307" fill="#8d99a8">21</text>
+  </g>
+  <path d="M116 300 H144 M226 300 H254 M336 300 H364 M446 300 H474" stroke="#8d99a8" stroke-width="2"/>
+  <text x="484" y="306" fill="#8d99a8" font-size="15">… se repite</text>
+  <text x="40" y="344" fill="#8d99a8" font-size="13">El testigo solo parpadea con la moto detenida, en ralentí o con el motor apagado.</text>
+</svg>

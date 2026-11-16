@@ -1,0 +1,42 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      # The site lives at https://<owner>.github.io/<repo>/
+      SITE: https://${{ github.repository_owner }}.github.io
+      BASE: /${{ github.event.repository.name }}
+    steps:
+      - uses: actions/checkout@v7
+      # Installs, builds (validating every vehicle and guide) and uploads the site.
+      - uses: withastro/action@v6
+        with:
+          node-version: 22
+
+  deploy:
+    # Pull requests only build, to validate contributions.
+    if: github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5

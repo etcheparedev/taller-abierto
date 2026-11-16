@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="300" viewBox="0 0 800 300" font-family="system-ui, sans-serif">
+  <rect width="800" height="300" rx="16" fill="#12161b"/>
+  <text x="40" y="46" fill="#e9eef3" font-size="20" font-weight="700">Juego libre del embrague y del acelerador</text>
+
+  <!-- clutch lever (left) -->
+  <rect x="60" y="190" width="250" height="26" rx="13" fill="#181d24" stroke="#8d99a8" stroke-width="3"/>
+  <circle cx="300" cy="170" r="9" fill="#8d99a8"/>
+  <path d="M300 170 L84 136" stroke="#e9eef3" stroke-width="9" stroke-linecap="round"/>
+  <path d="M300 170 L82 118" stroke="#e9eef3" stroke-width="3" stroke-linecap="round" stroke-dasharray="6 7" opacity="0.6"/>
+  <path d="M70 116 V140" stroke="#ff5a1f" stroke-width="3"/>
+  <path d="M63 123 L70 114 L77 123 M63 133 L70 142 L77 133" fill="none" stroke="#ff5a1f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="60" y="100" fill="#ff5a1f" font-size="18" font-weight="700">2 – 3 mm</text>
+  <text x="185" y="244" fill="#8d99a8" font-size="13" text-anchor="middle">Palanca del embrague (puño izquierdo)</text>
+  <text x="185" y="264" fill="#8d99a8" font-size="13" text-anchor="middle">Recorrido antes de que tire del cable</text>
+
+  <!-- divider -->
+  <path d="M400 80 V270" stroke="#242b35" stroke-width="2"/>
+
+  <!-- throttle grip (right), seen from the end -->
+  <circle cx="560" cy="170" r="62" fill="#181d24" stroke="#8d99a8" stroke-width="3"/>
+  <circle cx="560" cy="170" r="14" fill="#8d99a8"/>
+  <path d="M560 170 L560 108" stroke="#e9eef3" stroke-width="3" stroke-linecap="round"/>
+  <path d="M560 170 L584 113" stroke="#e9eef3" stroke-width="3" stroke-linecap="round" stroke-dasharray="6 7" opacity="0.6"/>
+  <path d="M562 98 A72 72 0 0 1 590 104" fill="none" stroke="#ff5a1f" stroke-width="3"/>
+  <path d="M582 96 L591 104 L581 110" fill="none" stroke="#ff5a1f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="604" y="100" fill="#ff5a1f" font-size="18" font-weight="700">2 – 3 mm</text>
+  <text x="590" y="258" fill="#8d99a8" font-size="13" text-anchor="middle">Puño del acelerador, visto de frente</text>
+  <text x="590" y="278" fill="#8d99a8" font-size="13" text-anchor="middle">Giro del puño antes de que tire del cable</text>
+</svg>

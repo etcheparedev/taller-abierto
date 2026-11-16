@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="210" viewBox="0 0 800 210" font-family="system-ui, sans-serif">
+  <defs>
+    <marker id="more" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#3ddc97"/>
+    </marker>
+  </defs>
+  <rect width="800" height="210" rx="16" fill="#12161b"/>
+  <text x="40" y="46" fill="#e9eef3" font-size="20" font-weight="700">Cuándo se enciende el aviso de servicio</text>
+
+  <path d="M60 120 H736" stroke="#3ddc97" stroke-width="3" marker-end="url(#more)"/>
+  <g fill="#12161b" stroke="#3ddc97" stroke-width="3">
+    <circle cx="75" cy="120" r="9"/>
+    <circle cx="228" cy="120" r="9"/>
+    <circle cx="398" cy="120" r="9"/>
+    <circle cx="568" cy="120" r="9"/>
+  </g>
+  <g fill="#e9eef3" font-size="16" font-weight="700" text-anchor="middle">
+    <text x="75" y="96">450 km</text>
+    <text x="228" y="96">4950 km</text>
+    <text x="398" y="96">9950 km</text>
+    <text x="568" y="96">14 950 km</text>
+  </g>
+  <g fill="#8d99a8" font-size="13" text-anchor="middle">
+    <text x="75" y="152">1.er servicio</text>
+    <text x="228" y="152">2.º servicio</text>
+    <text x="398" y="152">3.er servicio</text>
+    <text x="568" y="152">4.º servicio</text>
+  </g>
+  <text x="740" y="152" fill="#3ddc97" font-size="13" font-weight="600" text-anchor="end">luego cada 5000 km</text>
+</svg>

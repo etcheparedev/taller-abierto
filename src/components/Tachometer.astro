@@ -1,0 +1,47 @@
+---
+// Decorative animated tachometer for the hero. Pure SVG + CSS.
+const START = -120; // degrees, 0 = straight up
+const SWEEP = 240;
+const TICKS = 13;
+
+const polar = (deg: number, r: number) => {
+  const rad = ((deg - 90) * Math.PI) / 180;
+  return [100 + r * Math.cos(rad), 100 + r * Math.sin(rad)];
+};
+
+const ticks = Array.from({ length: TICKS }, (_, i) => {
+  const deg = START + (SWEEP / (TICKS - 1)) * i;
+  const [x1, y1] = polar(deg, 78);
+  const [x2, y2] = polar(deg, i % 2 === 0 ? 66 : 71);
+  const [tx, ty] = polar(deg, 55);
+  return { x1, y1, x2, y2, tx, ty, label: i % 2 === 0 ? String(i) : null, red: i >= 10 };
+});
+
+const [ax1, ay1] = polar(START, 88);
+const [ax2, ay2] = polar(START + SWEEP, 88);
+const arc = `M ${ax1} ${ay1} A 88 88 0 1 1 ${ax2} ${ay2}`;
+---
+
+<div class="tacho" aria-hidden="true">
+  <svg viewBox="0 0 200 200">
+    <path d={arc} fill="none" stroke="var(--border)" stroke-width="5" stroke-linecap="round"></path>
+    <path class="arc" d={arc} pathLength="100" fill="none" stroke="var(--accent)" stroke-width="5" stroke-linecap="round"></path>
+    {
+      ticks.map((t) => (
+        <>
+          <line x1={t.x1} y1={t.y1} x2={t.x2} y2={t.y2} stroke={t.red ? 'var(--accent)' : 'var(--muted)'} stroke-width="1.6" stroke-linecap="round" />
+          {t.label && (
+            <text x={t.tx} y={t.ty} fill={t.red ? 'var(--accent)' : 'var(--muted)'} font-size="8" font-family="var(--mono)" text-anchor="middle" dominant-baseline="middle">
+              {t.label}
+            </text>
+          )}
+        </>
+      ))
+    }
+    <g class="needle">
+      <line x1="100" y1="112" x2="100" y2="30" stroke="var(--text)" stroke-width="2.4" stroke-linecap="round"></line>
+    </g>
+    <circle cx="100" cy="100" r="9" fill="var(--surface-2)" stroke="var(--accent)" stroke-width="2"></circle>
+    <text x="100" y="150" fill="var(--muted)" font-size="7" font-family="var(--mono)" text-anchor="middle" letter-spacing="1.5">RPM × 1000</text>
+  </svg>
+</div>

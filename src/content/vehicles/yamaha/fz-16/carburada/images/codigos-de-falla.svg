@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="250" viewBox="0 0 800 250" font-family="system-ui, sans-serif">
+  <rect width="800" height="250" rx="16" fill="#12161b"/>
+  <text x="40" y="46" fill="#e9eef3" font-size="20" font-weight="700">Cómo destella el código 15</text>
+
+  <!-- baseline (light off) -->
+  <path d="M40 170 H760" stroke="#242b35" stroke-width="2"/>
+
+  <!-- tens: one long flash (1 s on, 1.5 s off) -->
+  <rect x="60" y="110" width="80" height="60" rx="4" fill="#ff5a1f"/>
+  <!-- units: five short flashes (0.5 s on, 0.5 s off) -->
+  <g fill="#4db5ff">
+    <rect x="260" y="110" width="40" height="60" rx="4"/>
+    <rect x="340" y="110" width="40" height="60" rx="4"/>
+    <rect x="420" y="110" width="40" height="60" rx="4"/>
+    <rect x="500" y="110" width="40" height="60" rx="4"/>
+    <rect x="580" y="110" width="40" height="60" rx="4"/>
+  </g>
+
+  <g font-size="13" text-anchor="middle">
+    <text x="100" y="98" fill="#ff5a1f" font-weight="600">1 destello largo = 10</text>
+    <text x="440" y="98" fill="#4db5ff" font-weight="600">5 destellos cortos = 5</text>
+    <g fill="#8d99a8">
+      <text x="100" y="192">1 s</text>
+      <text x="200" y="192">1.5 s apagada</text>
+      <text x="280" y="192">0.5 s</text>
+      <text x="320" y="210">0.5 s apagada</text>
+      <text x="690" y="192">3 s apagada</text>
+    </g>
+  </g>
+  <text x="40" y="232" fill="#8d99a8" font-size="13">Naranja: decenas · Azul: unidades · Después de la pausa el código se repite.</text>
+</svg>

@@ -1,0 +1,54 @@
+---
+// Horizontal, swipeable row with previous/next buttons.
+// Without JavaScript it is still a regular horizontally scrollable list.
+interface Props {
+  /** Accessible name of the list, e.g. "Vehículos". */
+  label: string;
+}
+
+const { label } = Astro.props;
+---
+
+<div class="carousel" data-carousel>
+  <div class="carousel-head">
+    <slot name="head" />
+    <div class="carousel-nav">
+      <button type="button" class="carousel-btn" data-carousel-prev aria-label={`${label}: anteriores`} disabled>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg>
+      </button>
+      <button type="button" class="carousel-btn" data-carousel-next aria-label={`${label}: siguientes`}>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg>
+      </button>
+      <slot name="action" />
+    </div>
+  </div>
+  <div class="carousel-track" data-carousel-track role="group" aria-label={label} tabindex="0">
+    <slot />
+  </div>
+</div>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    document.querySelectorAll<HTMLElement>('[data-carousel]').forEach((carousel) => {
+      const track = carousel.querySelector<HTMLElement>('[data-carousel-track]')!;
+      const prev = carousel.querySelector<HTMLButtonElement>('[data-carousel-prev]')!;
+      const next = carousel.querySelector<HTMLButtonElement>('[data-carousel-next]')!;
+
+      // Disable a button when there is nothing left to show on its side.
+      const update = () => {
+        const max = track.scrollWidth - track.clientWidth;
+        prev.disabled = track.scrollLeft <= 2;
+        next.disabled = track.scrollLeft >= max - 2;
+        carousel.classList.toggle('carousel-fits', max <= 2);
+      };
+      const move = (direction: number) =>
+        track.scrollBy({ left: direction * track.clientWidth * 0.9, behavior: 'smooth' });
+
+      prev.addEventListener('click', () => move(-1));
+      next.addEventListener('click', () => move(1));
+      track.addEventListener('scroll', update, { passive: true });
+      new ResizeObserver(update).observe(track);
+      update();
+    });
+  });
+</script>

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="300" viewBox="0 0 800 300" font-family="system-ui, 'Segoe UI', sans-serif">
+  <rect width="800" height="300" rx="16" fill="#12161b"/>
+  <text x="40" y="46" fill="#e9eef3" font-size="20" font-weight="700">Señal del sensor de velocidad en una vuelta de rueda</text>
+
+  <!-- axes -->
+  <line x1="110" y1="90" x2="110" y2="220" stroke="#8d99a8" stroke-width="2"/>
+  <line x1="110" y1="220" x2="760" y2="220" stroke="#8d99a8" stroke-width="2"/>
+  <line x1="110" y1="110" x2="760" y2="110" stroke="#242b35" stroke-width="1.5" stroke-dasharray="6 6"/>
+  <text x="100" y="115" fill="#3ddc97" font-size="14" font-weight="600" text-anchor="end">4 – 4.5 V</text>
+  <text x="100" y="225" fill="#8d99a8" font-size="14" font-weight="600" text-anchor="end">0 V</text>
+
+  <!-- 8 pulses, 80 px period -->
+  <path d="M110 220 h20 v-110 h40 v110 h40 v-110 h40 v110 h40 v-110 h40 v110 h40 v-110 h40 v110 h40 v-110 h40 v110 h40 v-110 h40 v110 h40 v-110 h40 v110 h40 v-110 h40 v110 h20"
+        fill="none" stroke="#4db5ff" stroke-width="3" stroke-linejoin="round"/>
+
+  <!-- pulse numbers -->
+  <g fill="#e9eef3" font-size="15" font-weight="700" text-anchor="middle">
+    <text x="150" y="100">1</text>
+    <text x="230" y="100">2</text>
+    <text x="310" y="100">3</text>
+    <text x="390" y="100">4</text>
+    <text x="470" y="100">5</text>
+    <text x="550" y="100">6</text>
+    <text x="630" y="100">7</text>
+    <text x="710" y="100">8</text>
+  </g>
+
+  <text x="435" y="250" fill="#8d99a8" font-size="14" text-anchor="middle">Una vuelta completa de la rueda delantera</text>
+  <text x="435" y="278" fill="#8d99a8" font-size="14" text-anchor="middle">Lectura fija en 0 V o fija en 4 – 4.5 V: sensor defectuoso</text>
+</svg>

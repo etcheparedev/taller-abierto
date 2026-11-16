@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="320" viewBox="0 0 800 320" font-family="system-ui, sans-serif">
+  <rect width="800" height="320" rx="16" fill="#12161b"/>
+  <text x="40" y="46" fill="#e9eef3" font-size="20" font-weight="700">Dónde se mide la holgura de la cadena</text>
+
+  <!-- sprockets -->
+  <circle cx="160" cy="165" r="24" fill="#181d24" stroke="#8d99a8" stroke-width="3"/>
+  <circle cx="160" cy="165" r="5" fill="#8d99a8"/>
+  <circle cx="630" cy="165" r="62" fill="#181d24" stroke="#8d99a8" stroke-width="3"/>
+  <circle cx="630" cy="165" r="7" fill="#8d99a8"/>
+
+  <!-- chain: upper run tight, lower run sagging -->
+  <path d="M158 141 L624 103" fill="none" stroke="#e9eef3" stroke-width="5" stroke-linecap="round"/>
+  <path d="M162 189 Q396 238 628 227" fill="none" stroke="#e9eef3" stroke-width="5" stroke-linecap="round" stroke-dasharray="2 9"/>
+  <path d="M162 189 Q396 238 628 227" fill="none" stroke="#e9eef3" stroke-width="1.5" opacity="0.5"/>
+
+  <!-- slack arrow at mid span -->
+  <path d="M396 198 V248" stroke="#ff5a1f" stroke-width="3"/>
+  <path d="M388 206 L396 196 L404 206 M388 240 L396 250 L404 240" fill="none" stroke="#ff5a1f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="414" y="268" fill="#ff5a1f" font-size="18" font-weight="700">15 – 25 mm</text>
+  <text x="414" y="288" fill="#8d99a8" font-size="13">Límite de servicio: 30 – 40 mm</text>
+
+  <!-- labels -->
+  <g fill="#8d99a8" font-size="13" text-anchor="middle">
+    <text x="160" y="120">Piñón de salida</text>
+    <text x="630" y="254">Corona</text>
+  </g>
+  <text x="396" y="184" fill="#4db5ff" font-size="13" font-weight="600" text-anchor="middle">Mitad del tramo</text>
+  <text x="40" y="300" fill="#8d99a8" font-size="13">Con la rueda trasera libre y los dos reguladores en la misma marca.</text>
+</svg>

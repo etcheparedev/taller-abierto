@@ -1,0 +1,17 @@
+---
+// A brand shown as a wordmark, sponsor-wall style. Links to the brand page.
+import type { Brand } from '../lib/content';
+import { url } from '../lib/site';
+
+interface Props {
+  brand: Brand;
+}
+
+const { brand } = Astro.props;
+const count = brand.models.length;
+---
+
+<a class="brand-mark" href={url(brand.slug)}>
+  <b>{brand.name}</b>
+  <small>{count} {count === 1 ? 'modelo' : 'modelos'}</small>
+</a>

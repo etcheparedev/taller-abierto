@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="560" viewBox="0 0 800 560" font-family="system-ui, 'Segoe UI', sans-serif">
+  <rect width="800" height="560" rx="16" fill="#12161b"/>
+  <text x="40" y="46" fill="#e9eef3" font-size="20" font-weight="700">Barra de la horquilla: orden de las piezas</text>
+
+  <!-- centre line -->
+  <line x1="200" y1="70" x2="200" y2="530" stroke="#242b35" stroke-width="2" stroke-dasharray="6 6"/>
+
+  <!-- parts from the top -->
+  <g stroke-width="2" fill="#181d24">
+    <rect x="170" y="78" width="60" height="18" rx="5" stroke="#8d99a8"/>
+    <rect x="160" y="108" width="80" height="24" rx="5" stroke="#ff5a1f"/>
+    <rect x="175" y="144" width="50" height="34" rx="4" stroke="#8d99a8"/>
+    <rect x="170" y="190" width="60" height="8" rx="4" stroke="#8d99a8"/>
+    <path d="M178 212 h44 l-44 14 h44 l-44 14 h44 l-44 14 h44 l-44 14 h44" fill="none" stroke="#4db5ff"/>
+  </g>
+
+  <!-- seal stack -->
+  <g stroke-width="2" fill="#181d24">
+    <rect x="150" y="298" width="100" height="16" rx="8" stroke="#8d99a8"/>
+    <rect x="158" y="324" width="84" height="8" rx="4" stroke="#8d99a8"/>
+    <rect x="154" y="342" width="92" height="20" rx="5" stroke="#ff5a1f"/>
+    <rect x="160" y="372" width="80" height="8" rx="4" stroke="#8d99a8"/>
+    <rect x="162" y="390" width="76" height="22" rx="4" stroke="#4db5ff"/>
+  </g>
+
+  <!-- bottom -->
+  <g stroke-width="2" fill="#181d24">
+    <rect x="182" y="436" width="36" height="40" rx="4" stroke="#8d99a8"/>
+    <rect x="176" y="488" width="48" height="8" rx="4" stroke="#f2c94c"/>
+    <rect x="186" y="504" width="28" height="20" rx="4" stroke="#ff5a1f"/>
+  </g>
+
+  <!-- group labels -->
+  <g fill="#8d99a8" font-size="13" font-weight="700">
+    <text x="40" y="92">POR ARRIBA</text>
+    <text x="40" y="310">SELLOS</text>
+    <text x="40" y="450">POR ABAJO</text>
+  </g>
+
+  <!-- labels -->
+  <g font-size="15" fill="#e9eef3">
+    <text x="290" y="92">Tapa del tubo interior, con su perno (Allen de 5 mm)</text>
+    <text x="290" y="125" fill="#ff5a1f" font-weight="700">Tapón superior (Allen de 14 mm)</text>
+    <text x="290" y="166">Espaciador</text>
+    <text x="290" y="199">Arandela</text>
+    <text x="290" y="246" fill="#4db5ff" font-weight="700">Resorte principal</text>
+    <text x="290" y="311">Sello de polvo (guardapolvo)</text>
+    <text x="290" y="333">Seguro del retén</text>
+    <text x="290" y="357" fill="#ff5a1f" font-weight="700">Retén de aceite: siempre nuevo</text>
+    <text x="290" y="381">Arandela</text>
+    <text x="290" y="406" fill="#4db5ff" font-weight="700">Buje antifricción</text>
+    <text x="290" y="461">Cilindro con su pistón y su resorte</text>
+    <text x="290" y="497" fill="#f2c94c">Arandela de cobre</text>
+    <text x="290" y="520" fill="#ff5a1f" font-weight="700">Perno inferior (Allen de 6 mm), con fijador de roscas</text>
+  </g>
+</svg>

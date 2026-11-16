@@ -1,0 +1,66 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Aliases from '../../../components/Aliases.astro';
+import { getGuidesOf, getModels, type Model } from '../../../lib/content';
+import { url } from '../../../lib/site';
+
+export async function getStaticPaths() {
+  const models = await getModels();
+  return models.map((model) => {
+    const [brand, slug] = model.id.split('/');
+    return { params: { brand, model: slug }, props: { model } };
+  });
+}
+
+interface Props {
+  model: Model;
+}
+
+const { model } = Astro.props;
+const versions = await Promise.all(
+  model.versions.map(async (vehicle) => ({ vehicle, guideCount: (await getGuidesOf(vehicle)).length })),
+);
+---
+
+<Layout title={`${model.brand} ${model.name}`} description={`Versiones de ${model.brand} ${model.name} con guías de mantenimiento.`}>
+  <div class="wrap page-head">
+    <nav class="crumbs" aria-label="Ruta">
+      <a href={url()}>Inicio</a><span aria-hidden="true">/</span>
+      <a href={url(model.brandSlug)}>{model.brand}</a><span aria-hidden="true">/</span>
+      <span>{model.name}</span>
+    </nav>
+    <div>
+      <span class="eyebrow">{model.brand}</span>
+      <h1 transition:name={`model-${model.id}`}>{model.name}</h1>
+    </div>
+    <Aliases aliases={model.aliases} />
+    <p class="muted">Elige tu versión: los datos y algunas guías cambian de una a otra.</p>
+  </div>
+
+  <div class="wrap" style="padding-bottom: 4rem">
+    <div class="grid">
+      {
+        versions.map(({ vehicle, guideCount }, i) => (
+          <a class="card vehicle-card" href={url(vehicle.id)} data-reveal style={`--d:${i % 6}`}>
+            <div>
+              <span class="brand">Versión {vehicle.data.years && `· ${vehicle.data.years}`}</span>
+              <h3>{vehicle.data.version}</h3>
+            </div>
+            <p>{vehicle.data.tagline}</p>
+            <div class="stats">
+              {vehicle.data.highlights.slice(0, 3).map((h) => (
+                <div class="stat">
+                  <b>{h.value}</b>
+                  <span>{h.label}</span>
+                </div>
+              ))}
+            </div>
+            <span class="go">
+              {guideCount} guías <span aria-hidden="true">→</span>
+            </span>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</Layout>

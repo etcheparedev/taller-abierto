@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="310" viewBox="0 0 800 310" font-family="system-ui, sans-serif">
+  <rect width="800" height="310" rx="16" fill="#12161b"/>
+  <text x="40" y="46" fill="#e9eef3" font-size="20" font-weight="700">Orden para desconectar la batería</text>
+
+  <!-- callouts -->
+  <text x="345" y="88" fill="#4db5ff" font-size="15" font-weight="700" text-anchor="end">1.º Negativo (−)</text>
+  <text x="455" y="88" fill="#ff5a1f" font-size="15" font-weight="700">2.º Positivo (+)</text>
+
+  <!-- battery -->
+  <rect x="290" y="104" width="50" height="20" rx="4" fill="#4db5ff"/>
+  <rect x="460" y="104" width="50" height="20" rx="4" fill="#ff5a1f"/>
+  <rect x="250" y="122" width="300" height="120" rx="12" fill="#181d24" stroke="#8d99a8" stroke-width="2.5"/>
+  <text x="315" y="198" fill="#4db5ff" font-size="44" font-weight="700" text-anchor="middle">−</text>
+  <text x="485" y="198" fill="#ff5a1f" font-size="44" font-weight="700" text-anchor="middle">+</text>
+  <text x="400" y="190" fill="#8d99a8" font-size="13" text-anchor="middle">VRLA</text>
+
+  <text x="400" y="282" fill="#8d99a8" font-size="15" text-anchor="middle">Para conectar, al revés: primero el positivo y al final el negativo.</text>
+</svg>

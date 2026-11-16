@@ -1,0 +1,22 @@
+---
+interface Props {
+  table: { title: string; note?: string; columns: string[]; rows: string[][] };
+}
+
+const { table } = Astro.props;
+---
+
+<div class="table-block" data-reveal>
+  <h3>{table.title}</h3>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>{table.columns.map((column) => <th scope="col">{column}</th>)}</tr>
+      </thead>
+      <tbody>
+        {table.rows.map((row) => <tr>{row.map((cell) => <td>{cell}</td>)}</tr>)}
+      </tbody>
+    </table>
+  </div>
+  {table.note && <p class="note">{table.note}</p>}
+</div>

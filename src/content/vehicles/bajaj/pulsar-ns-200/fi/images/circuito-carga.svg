@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="380" viewBox="0 0 800 380" font-family="system-ui, 'Segoe UI', sans-serif">
+  <rect width="800" height="380" rx="16" fill="#12161b"/>
+  <text x="40" y="46" fill="#e9eef3" font-size="20" font-weight="700">Circuito de carga de la versión FI</text>
+
+  <!-- wires -->
+  <g fill="none" stroke-width="3">
+    <line x1="170" y1="130" x2="250" y2="130" stroke="#f2c94c"/>
+    <line x1="170" y1="150" x2="250" y2="150" stroke="#f2c94c"/>
+    <line x1="170" y1="170" x2="250" y2="170" stroke="#f2c94c"/>
+    <line x1="410" y1="150" x2="480" y2="150" stroke="#e9eef3"/>
+    <line x1="560" y1="150" x2="630" y2="150" stroke="#ff5a1f"/>
+    <line x1="330" y1="190" x2="330" y2="230" stroke="#8d99a8"/>
+  </g>
+
+  <!-- blocks -->
+  <g fill="#181d24" stroke="#242b35" stroke-width="2">
+    <circle cx="110" cy="150" r="60"/>
+    <rect x="250" y="110" width="160" height="80" rx="12"/>
+    <rect x="480" y="125" width="80" height="50" rx="10" stroke="#ff5a1f"/>
+    <rect x="630" y="110" width="130" height="80" rx="12"/>
+  </g>
+  <g fill="#e9eef3" font-size="15" font-weight="700" text-anchor="middle">
+    <text x="110" y="146">Magneto</text>
+    <text x="110" y="166" font-size="13" font-weight="400" fill="#8d99a8">trifásico</text>
+    <text x="330" y="146">Regulador-</text>
+    <text x="330" y="166">rectificador</text>
+    <text x="520" y="156" fill="#ff5a1f">Fusible</text>
+    <text x="695" y="146">Batería</text>
+    <text x="695" y="166" font-size="13" font-weight="400" fill="#8d99a8">12 V 8 Ah</text>
+  </g>
+
+  <!-- wire labels -->
+  <g font-size="13" text-anchor="middle">
+    <text x="210" y="116" fill="#f2c94c">3 × amarillo</text>
+    <text x="445" y="138" fill="#e9eef3">blanco/negro</text>
+    <text x="595" y="138" fill="#ff5a1f">rojo</text>
+    <text x="330" y="250" fill="#8d99a8">masa: negro</text>
+  </g>
+
+  <!-- measurements -->
+  <g font-size="14">
+    <path d="M110 212 v28" stroke="#3ddc97" stroke-width="2" fill="none"/>
+    <text x="110" y="262" fill="#3ddc97" font-weight="700" text-anchor="middle">Resistencia</text>
+    <text x="110" y="282" fill="#e9eef3" text-anchor="middle">1 Ω entre cada par</text>
+    <path d="M695 192 v48" stroke="#3ddc97" stroke-width="2" fill="none"/>
+    <text x="695" y="262" fill="#3ddc97" font-weight="700" text-anchor="middle">Voltaje, en paralelo</text>
+    <text x="695" y="282" fill="#e9eef3" text-anchor="middle">14.5 ± 0.2 V</text>
+  </g>
+
+  <text x="400" y="340" fill="#8d99a8" font-size="15" text-anchor="middle">Voltaje a 4500 rpm, con la batería cargada (13.1 ± 0.1 V en reposo).</text>
+</svg>

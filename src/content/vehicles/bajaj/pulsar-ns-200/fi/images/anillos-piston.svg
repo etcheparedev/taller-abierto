@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="380" viewBox="0 0 800 380" font-family="system-ui, sans-serif">
+  <rect width="800" height="380" rx="16" fill="#12161b"/>
+  <text x="40" y="46" fill="#e9eef3" font-size="20" font-weight="700">Hacia dónde apunta la abertura de cada anillo</text>
+
+  <!-- piston seen from above -->
+  <circle cx="210" cy="215" r="120" fill="#181d24" stroke="#8d99a8" stroke-width="3"/>
+  <circle cx="210" cy="215" r="96" fill="none" stroke="#242b35" stroke-width="2"/>
+  <text x="210" y="220" fill="#8d99a8" font-size="13" text-anchor="middle">Pistón visto desde arriba</text>
+
+  <!-- exhaust mark -->
+  <path d="M210 80 L200 62 H220 Z" fill="#ff5a1f"/>
+  <text x="232" y="74" fill="#ff5a1f" font-size="14" font-weight="700">Marca de escape</text>
+
+  <!-- gap positions: 0deg top ring, 180deg second ring and expander, -30deg / +30deg oil rails -->
+  <circle cx="210" cy="95" r="10" fill="#3ddc97"/>
+  <circle cx="210" cy="335" r="10" fill="#4db5ff"/>
+  <circle cx="186" cy="351" r="7" fill="#8d99a8"/>
+  <circle cx="150" cy="111" r="10" fill="#f5b83d"/>
+  <circle cx="270" cy="111" r="10" fill="#f5b83d"/>
+  <path d="M210 215 L150 111 M210 215 L270 111 M210 215 V95" stroke="#242b35" stroke-width="1.5" stroke-dasharray="4 5"/>
+  <text x="165" y="150" fill="#f5b83d" font-size="12" text-anchor="middle">30°</text>
+  <text x="256" y="150" fill="#f5b83d" font-size="12" text-anchor="middle">30°</text>
+
+  <!-- legend, in assembly order -->
+  <g font-size="15" fill="#e9eef3">
+    <text x="400" y="100" fill="#8d99a8" font-size="13">Orden de montaje, de abajo hacia arriba</text>
+    <circle cx="410" cy="130" r="8" fill="#f5b83d"/>
+    <text x="430" y="135">1. Riel de aceite inferior: 30° a la izquierda</text>
+    <circle cx="410" cy="166" r="6" fill="#8d99a8"/>
+    <text x="430" y="171">2. Expansor: del lado opuesto a la marca</text>
+    <circle cx="410" cy="202" r="8" fill="#f5b83d"/>
+    <text x="430" y="207">3. Riel de aceite superior: 30° a la derecha</text>
+    <circle cx="410" cy="238" r="8" fill="#4db5ff"/>
+    <text x="430" y="243">4. Segundo anillo («Top 2» arriba): opuesto</text>
+    <circle cx="410" cy="274" r="8" fill="#3ddc97"/>
+    <text x="430" y="279">5. Primer anillo («Top 1» arriba): hacia la marca</text>
+  </g>
+  <text x="400" y="322" fill="#8d99a8" font-size="13">El segundo anillo montado al revés deja pasar aceite</text>
+  <text x="400" y="340" fill="#8d99a8" font-size="13">y el motor echa humo por el escape.</text>
+</svg>

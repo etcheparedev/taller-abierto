@@ -1,0 +1,42 @@
+---
+import { Image } from 'astro:assets';
+import { getGuidesOf, type Model } from '../lib/content';
+import { url } from '../lib/site';
+
+interface Props {
+  model: Model;
+  index?: number;
+}
+
+const { model, index = 0 } = Astro.props;
+const [first] = model.versions;
+const single = model.versions.length === 1;
+const cover = model.versions.find((version) => version.data.cover)?.data.cover;
+
+// A model with one version links straight to it; otherwise to the version picker.
+const href = url(single ? first.id : model.id);
+const footer = single ? `${(await getGuidesOf(first)).length} guías` : `${model.versions.length} versiones`;
+---
+
+<a class="card vehicle-card" href={href} data-reveal style={`--d:${index % 6}`}>
+  {cover && <Image class="cover" src={cover} alt="" width={800} />}
+  <div>
+    <span class="brand">{model.brand}</span>
+    <h3 transition:name={`model-${model.id}`}>{model.name}</h3>
+    {model.aliases.length > 0 && <p class="aliases">También: {model.aliases.map((alias) => alias.name).join(' · ')}</p>}
+  </div>
+  <div class="chips">
+    {model.versions.map((version) => <span class="chip">{version.data.version}</span>)}
+  </div>
+  <div class="stats">
+    {
+      first.data.highlights.slice(0, 3).map((h) => (
+        <div class="stat">
+          <b>{h.value}</b>
+          <span>{h.label}</span>
+        </div>
+      ))
+    }
+  </div>
+  <span class="go">{footer} <span aria-hidden="true">→</span></span>
+</a>

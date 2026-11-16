@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="340" viewBox="0 0 800 340" font-family="system-ui, sans-serif">
+  <rect width="800" height="340" rx="16" fill="#12161b"/>
+  <text x="40" y="46" fill="#e9eef3" font-size="20" font-weight="700">Dónde se intercala el manómetro de combustible</text>
+
+  <!-- tank with pump -->
+  <rect x="40" y="110" width="150" height="110" rx="14" fill="#181d24" stroke="#8d99a8" stroke-width="2"/>
+  <rect x="96" y="150" width="38" height="56" rx="6" fill="#242b35" stroke="#4db5ff" stroke-width="2"/>
+  <text x="115" y="138" fill="#e9eef3" font-size="14" text-anchor="middle">Tanque</text>
+  <text x="115" y="244" fill="#4db5ff" font-size="13" text-anchor="middle">Bomba y regulador</text>
+
+  <!-- fuel hose to tee -->
+  <path d="M190 180 H330" stroke="#f5b83d" stroke-width="6" stroke-linecap="round"/>
+  <text x="260" y="168" fill="#8d99a8" font-size="13" text-anchor="middle">Manguera</text>
+
+  <!-- tee and gauge -->
+  <rect x="330" y="168" width="60" height="24" rx="4" fill="#8d99a8"/>
+  <path d="M360 168 V128" stroke="#8d99a8" stroke-width="6"/>
+  <circle cx="360" cy="96" r="34" fill="#181d24" stroke="#e9eef3" stroke-width="3"/>
+  <path d="M360 96 L380 78" stroke="#ff5a1f" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="360" cy="96" r="4" fill="#e9eef3"/>
+  <text x="360" y="212" fill="#e9eef3" font-size="13" text-anchor="middle">Unión en T</text>
+  <text x="410" y="88" fill="#3ddc97" font-size="18" font-weight="700">2.5 – 2.9 bar</text>
+  <text x="410" y="108" fill="#8d99a8" font-size="13">36 – 42 psi · encendido en ON</text>
+
+  <!-- to filter and injector -->
+  <path d="M390 180 H500" stroke="#f5b83d" stroke-width="6" stroke-linecap="round"/>
+  <rect x="500" y="162" width="74" height="36" rx="10" fill="#181d24" stroke="#8d99a8" stroke-width="2"/>
+  <text x="537" y="185" fill="#e9eef3" font-size="13" text-anchor="middle">Filtro</text>
+  <path d="M574 180 H660" stroke="#f5b83d" stroke-width="6" stroke-linecap="round"/>
+  <path d="M660 160 H700 L716 180 L700 200 H660 Z" fill="#181d24" stroke="#8d99a8" stroke-width="2"/>
+  <text x="688" y="226" fill="#e9eef3" font-size="13" text-anchor="middle">Inyector</text>
+
+  <text x="40" y="290" fill="#8d99a8" font-size="13">La manguera que se suelta del filtro va a la T del manómetro; el otro extremo del manómetro va al filtro.</text>
+  <text x="40" y="310" fill="#8d99a8" font-size="13">Si no llega a la presión: ventilación del tanque, línea de combustible, filtro y bomba.</text>
+</svg>

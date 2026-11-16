@@ -1,0 +1,154 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import Layout from '../../../../layouts/Layout.astro';
+import GuideCard from '../../../../components/GuideCard.astro';
+import Aliases from '../../../../components/Aliases.astro';
+import DataTable from '../../../../components/DataTable.astro';
+import { CATEGORIES, CATEGORY_IDS } from '../../../../lib/categories';
+import { brandSlugOf, getGuidesOf, getModels, modelIdOf, type Vehicle } from '../../../../lib/content';
+import { url } from '../../../../lib/site';
+
+export async function getStaticPaths() {
+  const vehicles = await getCollection('vehicles');
+  return vehicles.map((vehicle) => {
+    const [brand, model, version] = vehicle.id.split('/');
+    return { params: { brand, model, version }, props: { vehicle } };
+  });
+}
+
+interface Props {
+  vehicle: Vehicle;
+}
+
+const { vehicle } = Astro.props;
+const { brand, model, version, years, tagline, cover, highlights, specs, tables, source } = vehicle.data;
+const modelId = modelIdOf(vehicle);
+const modelEntry = (await getModels()).find((m) => m.id === modelId)!;
+const otherVersions = modelEntry.versions.length - 1;
+
+const guides = await getGuidesOf(vehicle);
+const groups = CATEGORY_IDS.map((id) => ({ id, guides: guides.filter((g) => g.data.category === id) })).filter(
+  (group) => group.guides.length > 0,
+);
+---
+
+<Layout title={`${brand} ${model} ${version}`} description={tagline}>
+  <div class="wrap page-head">
+    <nav class="crumbs" aria-label="Ruta">
+      <a href={url()}>Inicio</a><span aria-hidden="true">/</span>
+      <a href={url(brandSlugOf(vehicle))}>{brand}</a><span aria-hidden="true">/</span>
+      <a href={url(modelId)}>{model}</a><span aria-hidden="true">/</span>
+      <span>{version}</span>
+    </nav>
+    <div>
+      <span class="eyebrow">{brand} {years && `· ${years}`}</span>
+      <h1 transition:name={`model-${modelId}`}>{model}</h1>
+    </div>
+    <div class="chips">
+      <span class="chip chip-on">Versión {version}</span>
+      {
+        otherVersions > 0 && (
+          <a class="chip" href={url(modelId)}>
+            Cambiar versión ({otherVersions} más)
+          </a>
+        )
+      }
+    </div>
+    <Aliases aliases={modelEntry.aliases} />
+    <p class="muted" style="max-width: 60ch">{tagline}</p>
+    {cover && <Image class="cover cover-wide" src={cover} alt={`${brand} ${model} ${version}`} width={1120} loading="eager" />}
+    <div class="stats" style="max-width: 640px">
+      {
+        highlights.map((h) => (
+          <div class="stat">
+            <b>{h.value}</b>
+            <span>{h.label}</span>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <div class="filters">
+    <div class="wrap" role="group" aria-label="Filtrar por tipo de mantenimiento">
+      <button class="filter" data-filter="all" aria-pressed="true">Todas <small>{guides.length}</small></button>
+      {
+        groups.map((group) => (
+          <button class="filter" data-filter={group.id} data-category={group.id} aria-pressed="false">
+            {CATEGORIES[group.id].plural} <small>{group.guides.length}</small>
+          </button>
+        ))
+      }
+    </div>
+  </div>
+
+  <div class="wrap" id="guias">
+    {
+      groups.map((group) => (
+        <section class="cat-section" data-category={group.id}>
+          <header>
+            <h2>{CATEGORIES[group.id].plural}</h2>
+            <p class="muted">{CATEGORIES[group.id].description}</p>
+          </header>
+          <div class="grid">
+            {group.guides.map((guide, i) => (
+              <GuideCard guide={guide} vehicle={vehicle} index={i} />
+            ))}
+          </div>
+        </section>
+      ))
+    }
+  </div>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <span class="eyebrow">Datos de referencia</span>
+        <h2>Ficha técnica y torques</h2>
+      </div>
+      <div class="tables">
+        {
+          specs.length > 0 && (
+            <div class="panel" data-reveal style="max-width: 640px">
+              <h2>Especificaciones</h2>
+              <dl class="speclist">
+                {specs.map((s) => (
+                  <div>
+                    <dt>{s.label}</dt>
+                    <dd>{s.value}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          )
+        }
+        {tables.map((table) => <DataTable table={table} />)}
+      </div>
+      <p class="source">Fuente: {source}</p>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const buttons = document.querySelectorAll<HTMLButtonElement>('.filter');
+    const sections = document.querySelectorAll<HTMLElement>('.cat-section');
+
+    const apply = (filter: string) => {
+      buttons.forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.filter === filter)));
+      sections.forEach((section) => {
+        section.hidden = filter !== 'all' && section.dataset.category !== filter;
+      });
+    };
+
+    buttons.forEach((button) =>
+      button.addEventListener('click', () => {
+        const filter = button.dataset.filter ?? 'all';
+        // Cross-fade the list when the browser supports it.
+        if (document.startViewTransition) document.startViewTransition(() => apply(filter));
+        else apply(filter);
+      }),
+    );
+  });
+</script>

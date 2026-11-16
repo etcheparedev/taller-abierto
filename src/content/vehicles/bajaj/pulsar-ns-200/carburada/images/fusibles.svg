@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="330" viewBox="0 0 800 330" font-family="system-ui, 'Segoe UI', sans-serif">
+  <rect width="800" height="330" rx="16" fill="#12161b"/>
+  <text x="40" y="46" fill="#e9eef3" font-size="20" font-weight="700">Fusibles y lo que protege cada uno</text>
+
+  <!-- fuse 1 -->
+  <g>
+    <rect x="70" y="150" width="22" height="50" rx="3" fill="#8d99a8"/>
+    <rect x="148" y="150" width="22" height="50" rx="3" fill="#8d99a8"/>
+    <rect x="50" y="84" width="140" height="78" rx="12" fill="#181d24" stroke="#4db5ff" stroke-width="2.5"/>
+    <text x="120" y="134" fill="#4db5ff" font-size="30" font-weight="700" text-anchor="middle">20 A</text>
+    <text x="120" y="228" fill="#e9eef3" font-size="16" font-weight="700" text-anchor="middle">Fusible 1</text>
+  </g>
+  <g fill="#e9eef3" font-size="15">
+    <text x="220" y="104" fill="#4db5ff" font-weight="700">Alimentación principal</text>
+    <text x="220" y="128">Batería → interruptor de encendido</text>
+    <text x="220" y="150">Carga · arranque · encendido</text>
+    <text x="220" y="172">Tablero · ventilador del radiador</text>
+  </g>
+
+  <!-- fuse 2 -->
+  <g>
+    <rect x="510" y="150" width="22" height="50" rx="3" fill="#8d99a8"/>
+    <rect x="588" y="150" width="22" height="50" rx="3" fill="#8d99a8"/>
+    <rect x="490" y="84" width="140" height="78" rx="12" fill="#181d24" stroke="#ff5a1f" stroke-width="2.5"/>
+    <text x="560" y="134" fill="#ff5a1f" font-size="30" font-weight="700" text-anchor="middle">15 A</text>
+    <text x="560" y="228" fill="#e9eef3" font-size="16" font-weight="700" text-anchor="middle">Fusible 2</text>
+  </g>
+  <g fill="#e9eef3" font-size="15">
+    <text x="650" y="104" fill="#ff5a1f" font-weight="700">Con la llave en ON</text>
+    <text x="650" y="128">Bocina</text>
+    <text x="650" y="150">Luz de freno</text>
+    <text x="650" y="172">Direccionales</text>
+    <text x="650" y="194">Luces</text>
+  </g>
+
+  <text x="400" y="286" fill="#8d99a8" font-size="15" text-anchor="middle">Valores de los diagramas eléctricos. Confirma el amperaje marcado en tu caja de fusibles.</text>
+</svg>

@@ -1,0 +1,25 @@
+---
+// "También se vende como…" line: the other names of a model, with their markets.
+import type { Model } from '../lib/content';
+
+interface Props {
+  aliases: Model['aliases'];
+}
+
+const { aliases } = Astro.props;
+---
+
+{
+  aliases.length > 0 && (
+    <p class="aliases">
+      También se vende como{' '}
+      {aliases.map((alias, i) => (
+        <>
+          {i > 0 && ' · '}
+          <b>{alias.name}</b>
+          {alias.markets && ` (${alias.markets})`}
+        </>
+      ))}
+    </p>
+  )
+}

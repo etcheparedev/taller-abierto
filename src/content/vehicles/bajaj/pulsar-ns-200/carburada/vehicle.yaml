@@ -1,0 +1,304 @@
+brand: Bajaj
+model: Pulsar NS 200
+version: Carburada
+type: moto
+aliases:
+  - { name: Rouser NS 200, markets: "Argentina, Filipinas" }
+  - { name: Dominar 200 / Dominar NS 200, markets: Brasil }
+tagline: Versión con carburador UCAL BS33. Naked de 200 cc con refrigeración líquida, triple bujía, chasis perimetral y caja de 6 velocidades.
+highlights:
+  - { label: Cilindrada, value: 199.4 cc }
+  - { label: Potencia, value: 23.2 HP }
+  - { label: Torque, value: 18.3 N·m }
+  - { label: Velocidades, value: "6" }
+specs:
+  - { label: Motor, value: "4 tiempos, monocilíndrico, refrigerado por líquido" }
+  - { label: Cilindrada, value: 199.4 cc }
+  - { label: Diámetro × carrera, value: 72.0 × 49.0 mm }
+  - { label: Relación de compresión, value: "11.0 ± 0.5 : 1" }
+  - { label: Presión de compresión, value: 12.0 – 13.0 kg/cm² }
+  - { label: Potencia máxima, value: "17.5 kW (23.2 HP) a 9500 rpm" }
+  - { label: Torque máximo, value: "18.3 N·m (1.86 kgf·m) a 8000 rpm" }
+  - { label: Válvulas, value: "4 (2 de admisión, 2 de escape)" }
+  - { label: Holgura de válvulas (en frío), value: Admisión 0.05 mm · Escape 0.08 mm }
+  - { label: Encendido, value: "CDI digital de corriente continua con microprocesador y TPS, avance por mapas variables" }
+  - { label: Avance del encendido, value: 7° a 1500 ± 100 rpm }
+  - { label: Bujías, value: "3 · laterales Champion PRG6HCC · central Bosch YR5NE o Champion RER6YCA" }
+  - { label: Holgura de bujías, value: 0.7 – 0.8 mm }
+  - { label: Combustible, value: Gasolina de 89 octanos }
+  - { label: Tanque de combustible, value: 12.0 L (reserva utilizable 2.4 L · no utilizable 0.2 L) }
+  - { label: Carburador, value: UCAL BS33 con TPS }
+  - { label: Ralentí, value: 1500 ± 100 rpm }
+  - { label: Lubricación, value: Forzada }
+  - { label: Aceite de motor, value: "SAE 20W50, API SL, JASO MA" }
+  - { label: Cantidad de aceite, value: 1200 ml en el cambio · 1400 ml tras desarmar el motor }
+  - { label: Refrigeración, value: Líquida · 1000 ml en total }
+  - { label: Arranque, value: Eléctrico }
+  - { label: Embrague, value: Multidisco bañado en aceite }
+  - { label: Transmisión, value: "6 velocidades (1 abajo, 5 arriba)" }
+  - { label: Reducción primaria, value: "3.272" }
+  - { label: Relaciones de caja, value: "1.ª 2.83 · 2.ª 2.07 · 3.ª 1.56 · 4.ª 1.24 · 5.ª 1.05 · 6.ª 0.92" }
+  - { label: Transmisión final, value: Cadena con O-rings · 39/14 }
+  - { label: Holgura de la cadena, value: 25 – 30 mm (ver nota en la tabla de límites del chasis) }
+  - { label: Chasis, value: Perimetral }
+  - { label: Suspensión delantera, value: Telescópica · recorrido 130 mm }
+  - { label: Aceite de horquilla, value: SAE 10W20 · 295 ± 2.5 ml en el llenado · 320 ml tras desarmar }
+  - { label: Suspensión trasera, value: "Monoamortiguador Nitrox · recorrido 120 mm · 10 posiciones de precarga (de fábrica en la 2)" }
+  - { label: Freno delantero, value: Disco de 280 mm }
+  - { label: Freno trasero, value: Disco de 230 mm }
+  - { label: Llanta delantera, value: "100/80-17 52P sin cámara · rin de aleación 2.5 × 17" }
+  - { label: Llanta trasera, value: "130/70-17 61P sin cámara · rin de aleación 3.5 × 17" }
+  - { label: Presión de llantas, value: Delantera 25 psi · Trasera 28 a 28.5 psi solo y 32 psi con pasajero }
+  - { label: Largo × ancho × alto, value: 2017 × 804 × 1195 mm }
+  - { label: Distancia entre ejes, value: 1363 mm }
+  - { label: Altura del asiento, value: 807 mm }
+  - { label: Despeje al suelo, value: 167 mm }
+  - { label: Radio de giro mínimo, value: 2500 mm }
+  - { label: Peso, value: 145 kg }
+  - { label: Peso máximo, value: 275 kg }
+  - { label: Velocidad máxima, value: 136 km/h (solo conductor de 68 kg) }
+  - { label: Sistema eléctrico, value: 12 V CC }
+  - { label: Batería, value: "12 V, 8 Ah, tipo VRLA (sellada)" }
+  - { label: Faro, value: "12 V 55/60 W, HS-1 halógeno" }
+  - { label: Direccionales, value: 12 V 10 W (4 bombillas ámbar) }
+  - { label: Luz trasera y de freno, value: LED }
+  - { label: Bocina, value: 12 V CC · 70 mm de diámetro }
+  - { label: Número de chasis, value: "17 caracteres, lado derecho del tubo de dirección" }
+  - { label: Número de motor, value: "11 caracteres, cárter izquierdo" }
+tables:
+  - title: Programa de mantenimiento periódico
+    note: "Servicios: 1.º a los 500–750 km (o 30–45 días), 2.º a los 4500–5000 km, 3.º a los 9500–10 000, 4.º a los 14 500–15 000, 5.º a los 19 500–20 000, 6.º a los 24 500–25 000 y 7.º a los 29 500–30 000 km; después, cada 5000 km. El cuadro del manual no tiene fila 39. Los elementos marcados con ** aplican según el modelo y los marcados con *** necesitan atención más frecuente en zonas polvorientas. El manual recomienda usar el aceite indicado en el manual de garantía o uno de las mismas especificaciones."
+    columns: [Elemento, Operación, Servicios, Otro intervalo]
+    rows:
+      - ["Ralentí y CO %", "Revisar y ajustar", "1.º a 7.º", "—"]
+      - ["Holgura de válvulas", "Revisar y ajustar", "1.º a 7.º", "—"]
+      - ["Aceite de motor", "Cambiar", "1.º a 7.º", "Completar cuando haga falta; cambiar cada 5000 km"]
+      - ["Filtro de aceite (limpieza)", "Limpiar", "1.º a 7.º", "—"]
+      - ["Filtro de aceite de motor", "Cambiar", "1.º a 7.º", "En cada cambio de aceite"]
+      - ["Holgura de las bujías", "Limpiar y ajustar", "1.º a 4.º, 6.º y 7.º", "—"]
+      - ["Bujías", "Cambiar", "5.º", "Cada 20 000 km"]
+      - ["Filtro de aire ***", "Limpiar en el 1.º; cambiar después", "1.º a 7.º", "Cambiar cada 5000 km"]
+      - ["Sello del filtro de aire ***", "Cambiar", "5.º", "Cada 20 000 km"]
+      - ["Filtro de papel, mangueras y abrazaderas", "Cambiar", "5.º", "Cada 20 000 km"]
+      - ["Sedimento de combustible", "Limpiar", "2.º a 7.º", "—"]
+      - ["Filtro de la llave de combustible **", "Cambiar", "5.º", "Cada 20 000 km"]
+      - ["Carburador", "Limpiar y ajustar", "4.º y 7.º", "—"]
+      - ["Cuba del carburador", "Limpiar", "3.º, 5.º y 7.º", "—"]
+      - ["Conducto de goma del carburador", "Revisar; cambiar si hace falta", "5.º", "—"]
+      - ["Manguera de combustible", "Revisar; cambiar en el 5.º", "1.º a 7.º", "Cambiar cada 20 000 km"]
+      - ["Nivel de refrigerante en el tanque de expansión **", "Revisar y completar", "1.º a 6.º", "En cada servicio"]
+      - ["Refrigerante", "Cambiar", "—", "Cada 30 000 km o 2 años, lo que ocurra primero"]
+      - ["Mangueras de refrigerante (daños, abrazaderas, fugas) **", "Revisar; cambiar si hace falta", "2.º a 7.º", "Cambiar cada 35 000 km o 3 años, lo que ocurra primero"]
+      - ["Aletas del radiador", "Revisar", "2.º a 7.º", "—"]
+      - ["Nivel de electrolito de la batería **", "Revisar", "1.º a 7.º", "—"]
+      - ["Conexiones de la batería", "Revisar y apretar", "2.º a 7.º", "—"]
+      - ["Discos del embrague", "Revisar; cambiar si hace falta", "5.º", "—"]
+      - ["Juego libre del embrague", "Revisar y ajustar", "1.º a 7.º", "—"]
+      - ["Juego libre del acelerador", "Revisar y ajustar", "1.º a 7.º", "—"]
+      - ["Juego de los frenos", "Revisar y ajustar", "1.º a 7.º", "—"]
+      - ["Desgaste de las pastillas de freno", "Revisar; cambiar si hace falta", "1.º a 7.º", "Cambiar cuando sea necesario"]
+      - ["Nivel del líquido de frenos **", "Revisar y completar", "1.º a 6.º", "En cada servicio"]
+      - ["Líquido de frenos", "Cambiar", "5.º", "Cada 20 000 km"]
+      - ["Manguera del freno delantero", "Cambiar", "7.º", "—"]
+      - ["Kit del pistón del cilindro maestro", "Cambiar", "7.º", "—"]
+      - ["Sellos de los pistones de las pinzas **", "Cambiar", "7.º", "—"]
+      - ["Palancas de freno y pivote del pedal", "Lubricar", "2.º a 7.º", "—"]
+      - ["Corona (piñón trasero)", "Revisar y apretar", "1.º a 7.º", "—"]
+      - ["Goma del amortiguador trasero", "Revisar; cambiar si hace falta", "3.º, 5.º y 7.º", "—"]
+      - ["Drenaje del silenciador", "Limpiar", "2.º a 7.º", "—"]
+      - ["Tubo del silenciador", "Limpiar", "2.º a 7.º", "—"]
+      - ["Presión de compresión del motor", "Revisar", "5.º y 7.º", "—"]
+      - ["Descarbonado del cilindro", "Limpiar", "5.º", "Si es necesario"]
+      - ["Entrada de aire del motor", "Cambiar", "5.º", "Cada 20 000 km"]
+      - ["Tensión de la cadena", "Revisar y ajustar", "1.º a 7.º", "El punto de mantenimiento indica revisarla cada 1000 km"]
+      - ["Lubricación de la cadena", "Revisar y lubricar", "1.º", "Lubricar cada 500 km"]
+      - ["Seguro de la cadena", "Cambiar", "2.º a 7.º", "Cada vez que se abra la cadena"]
+      - ["Desgaste de la cadena (desmontar y lubricar)", "Revisar y lubricar", "2.º a 7.º", "—"]
+      - ["Rodamientos de las ruedas", "Revisar; cambiar si hace falta", "3.º a 7.º", "—"]
+      - ["Desgaste de las llantas", "Revisar; cambiar si hace falta", "3.º a 7.º", "—"]
+      - ["Aceite de la suspensión delantera", "Cambiar", "5.º", "Cada 20 000 km"]
+      - ["Sellos de aceite de la suspensión delantera", "Cambiar", "5.º", "Cada 20 000 km"]
+      - ["Ajuste del TPS", "Revisar y ajustar", "1.º a 7.º", "—"]
+      - ["Presión de gas del amortiguador trasero **", "Revisar y ajustar", "5.º", "No se requiere en el diseño nuevo"]
+      - ["Embrague de arranque ** (aplicación en seco)", "Lubricar", "2.º a 7.º", "—"]
+      - ["Cableado", "Revisar", "2.º, 4.º y 6.º", "—"]
+      - ["Contactos del interruptor de encendido", "Revisar y limpiar", "1.º a 7.º", "—"]
+      - ["Interruptores de embrague y de freno, base horizontal **", "Revisar, limpiar contactos y lubricar", "3.º, 5.º y 7.º", "—"]
+      - ["Interruptor de embrague, base vertical **", "Revisar; cambiar si hace falta", "3.º, 5.º y 7.º", "—"]
+      - ["Interruptor del freno trasero", "Revisar y ajustar", "1.º a 7.º", "—"]
+      - ["Conexiones del motor de arranque", "Revisar y apretar", "2.º a 7.º", "—"]
+      - ["Conexiones del relé de encendido", "Revisar y apretar", "2.º a 7.º", "—"]
+      - ["Conexiones de la bobina", "Revisar y apretar", "2.º a 7.º", "—"]
+      - ["Indicador de presión de aceite del tablero **", "Revisar", "1.º a 7.º", "—"]
+      - ["Lubricación general", "Lubricar", "1.º a 7.º", "—"]
+      - ["Pasadores del gato lateral y del central **", "Revisar y lubricar", "3.º, 5.º y 7.º", "—"]
+      - ["Cauchos del brazo oscilante", "Lubricar", "2.º a 7.º", "—"]
+      - ["Bujes del motor", "Cambiar", "5.º", "Cada 20 000 km"]
+      - ["Juego de la dirección", "Revisar y ajustar", "1.º a 7.º", "—"]
+      - ["Rodamiento del vástago de dirección ***", "Revisar, limpiar y lubricar; cambiar si hace falta", "3.º, 5.º y 7.º", "—"]
+      - ["Tapa plástica del rodamiento de dirección **", "Revisar; cambiar si hace falta", "3.º, 5.º y 7.º", "—"]
+      - ["Reposapiés del pasajero", "Revisar y limpiar", "2.º a 7.º", "—"]
+      - ["Apriete de los sujetadores", "Revisar y apretar", "1.º a 7.º", "—"]
+  - title: Torques de apriete del motor
+    note: "El manual da la mayoría de los valores solo en kgf·m (1 kgf·m ≈ 9.8 N·m); la columna N·m se completa solo donde el manual la trae. Para los sujetadores del motor al chasis el manual da valores distintos según la página: ver la tabla de torques del chasis. Para los pernos de los resortes del embrague el manual escribe «1.1 ~ 1.0»."
+    columns: [Parte, kgf·m, N·m]
+    rows:
+      - [Bujías (3), 1.3 – 1.5, —]
+      - [Tornillos de la tapa de culata, 1.0 – 1.2, 9.8 – 11.8]
+      - [Pernos de culata (largos), 4.5 – 4.8, 44.1 – 47.1]
+      - [Pernos de culata (cortos), 1.0 – 1.2, 9.8 – 11.8]
+      - [Perno del piñón del árbol de levas, "2.5", "24.5"]
+      - [Pernos del tensor de la cadenilla, 1.0 – 1.2, —]
+      - [Perno del patín de la cadenilla, 1.0 – 1.2, 9.8 – 11.8]
+      - [Sensor de temperatura del refrigerante, 1.2 – 1.4, —]
+      - [Perno del múltiple de admisión, 0.9 – 1.1, —]
+      - [Perno de drenaje de aceite, 0.9 – 1.1, 8.8 – 10.8]
+      - [Pernos de la tapa del filtro de aceite, 1.0 – 1.2, 9.8 – 11.8]
+      - [Tornillos de la bomba de aceite, 1.0 – 1.2, —]
+      - [Pernos de la tapa del embrague, 1.0 – 1.2, 9.8 – 11.8]
+      - [Tuerca del embrague, 7.0 – 7.1, —]
+      - [Pernos de los resortes del embrague, 1.0 – 1.1, —]
+      - [Tuerca del piñón primario, 5.9 – 6.1, —]
+      - [Tuerca del piñón del balanceador, 5.9 – 6.0, —]
+      - [Perno del piñón conducido del balanceador, 2.2 – 2.5, —]
+      - [Perno de la guía selectora de cambios, 1.0 – 1.2, —]
+      - [Pernos de la tapa del volante, 1.0 – 1.2, 9.8 – 11.8]
+      - [Tuerca del volante, 5.9 – 6.1, —]
+      - [Pernos del estator, 0.7 – 0.8, —]
+      - [Pernos del motor de arranque, 1.0 – 1.2, —]
+      - [Pernos del piñón de salida, 1.0 – 1.2, —]
+      - [Pernos del escape, 2.2 – 2.5, —]
+      - [Abrazadera del silenciador, 1.0 – 1.2, —]
+      - [Soportes superiores de la defensa (izquierdo y derecho), 1.0 – 1.2, —]
+  - title: Límites de servicio del motor
+    note: Medidas en mm salvo que se indique otra unidad. Un guion significa que el manual no da ese valor. TIR es la lectura total del comparador.
+    columns: [Medida, Estándar, Límite de servicio]
+    rows:
+      - [Presión de compresión, 12.0 – 13.0 kg/cm², —]
+      - [Holgura de válvulas, Admisión 0.05 · Escape 0.08, —]
+      - [Diámetro del eje de balancines, "10", —]
+      - [Diámetro del piñón de distribución, "60.52", "60.22"]
+      - [Altura de la leva, Admisión 30.70 · Escape 30.40, Admisión 30.65 · Escape 30.35]
+      - [Ancho de la leva, "9.0", —]
+      - [Longitud libre del resorte de válvula, "38.51", "37.7"]
+      - [Diámetro del vástago de válvula, Admisión 4.483 · Escape 4.463, Admisión 4.465 · Escape 4.445]
+      - [Deflexión del vástago de válvula, TIR 0.01, TIR 0.02]
+      - [Deformación de la culata, "0.05", —]
+      - [Longitud de la cadenilla (20 eslabones), 127 – 127.48, "128.9"]
+      - [Diámetro interior del cilindro, 72.006 – 72.013, —]
+      - [Diámetro del pistón, "71.970", —]
+      - [Holgura entre pistón y cilindro, 0.02 – 0.04, "0.06"]
+      - [Holgura de los anillos en su ranura, Superior 0.020 – 0.055 · Inferior 0.02 – 0.060 · Aceite 0.035 – 0.110, —]
+      - [Holgura de los anillos dentro del cilindro, Superior 0.015 – 0.030 · Inferior 0.030 – 0.050 · Aceite 0.20 – 0.70, —]
+      - [Longitud de los resortes del embrague, "38.4", "37.3"]
+      - [Espesor de los discos de fricción, "3.0", "2.8"]
+      - [Espesor de los separadores de acero, "1.6", —]
+      - [Deformación de los separadores, "0.1", —]
+      - [Deformación de los discos, "0.1", —]
+      - [Altura de la manzana del embrague, 21.0 – 21.2, "21.4"]
+      - [Altura del embrague armado, 22.17 – 21.57, "20.3"]
+      - [Diámetro del pin de la horquilla selectora, 4.45 – 4.49, "4.4"]
+      - [Diámetro exterior del eje de horquillas, 11.966 – 11.984, —]
+      - [Diámetro interior de la horquilla selectora, "12.0", —]
+      - [Ancho de las ranuras del tambor selector, 4.55 – 4.70, "4.75"]
+      - [Descentramiento del cigüeñal, "0.02", —]
+      - [Holgura entre biela y cigüeñal, 0.13 – 0.38, "0.58"]
+  - title: Torques de apriete del chasis
+    note: "El manual da estos valores en kgf·m (1 kgf·m ≈ 9.8 N·m); la columna N·m se completa solo donde el manual la trae. Contradicciones del manual: el eje delantero figura con 8.0 – 10.0 en la tabla del despiece y con 9.0 – 10 en la página de torques; los sujetadores del motor figuran con 2.5 – 2.7 (superiores) y 2.5 – 3.0 (inferiores) en la sección de torques del motor; el guardabarros delantero figura con 0.6 – 0.8 y el disco trasero con 0.9 – 1.1 en la carta de llaves Allen; para el disco trasero la tabla del despiece escribe 25.5 – 37.3 N·m, que no coincide con sus propias columnas en kgf·m y lb·ft."
+    columns: [Parte, kgf·m, N·m]
+    rows:
+      - [Eje delantero, 8.0 – 10.0, 78.5 – 98.1]
+      - [Tuerca del eje trasero, 8.0 – 10.0, 78.5 – 98.1]
+      - [Eje del brazo oscilante, 8.0 – 10.0, 78.5 – 98.1]
+      - [Tuercas de la corona, 3.2 – 3.8, —]
+      - [Pernos del disco delantero, 2.6 – 3.2, 25.5 – 31.4]
+      - [Pernos del disco trasero, 2.6 – 3.2, —]
+      - [Pernos de la pinza delantera, 2.2 – 2.8, —]
+      - [Perno de la palanca del freno trasero, 2.0 – 2.2, —]
+      - [Tuerca de la cuna de dirección, 4.8 – 5.2, 47.1 – 50.1]
+      - [Tuerca ranurada de dirección, "0.5", —]
+      - [Pernos superiores de dirección, 1.8 – 2.0, 17.6 – 19.6]
+      - [Pernos inferiores de dirección, 2.5 – 3.0, —]
+      - [Pernos del manubrio, 1.8 – 2.0, —]
+      - [Pesas del manubrio, 0.8 – 1.2, —]
+      - [Perno superior del amortiguador, 3.2 – 3.8, 31.4 – 37.3]
+      - [Perno inferior del amortiguador, 3.2 – 3.8, 31.4 – 37.3]
+      - [Sujetadores superiores del motor (izquierdo y derecho), 2.4 – 2.6, 23.5 – 25.5]
+      - [Sujetadores inferiores del motor (izquierdo y derecho), 3.4 – 3.6, 33.3 – 35.3]
+      - [Sujetadores posteriores del motor, 2.5 – 3.0, 24.5 – 29.4]
+      - [Reposapiés del pasajero, 1.8 – 2.2, 17.6 – 21.6]
+      - [Guardabarros delantero, 0.8 – 1.0, 7.8 – 9.8]
+      - [Guardabarros interno delantero, 0.8 – 1.0, —]
+      - [Pernos internos del guardabarros, 1.8 – 2.0, —]
+      - [Pernos del gato lateral, 1.8 – 2.2, —]
+      - [Gato lateral, 2.5 – 3.0, —]
+      - [Perno delantero del tanque, 1.8 – 2.2, —]
+      - [Pernos traseros del tanque, 1.8 – 2.2, —]
+      - [Portaplacas, 1.8 – 2.2, —]
+  - title: Torques por medida de llave Allen
+    note: "La carta del manual no indica valor para la abrazadera de la manguera del carburador (Allen de 3 mm). 1 kgf·m ≈ 9.8 N·m."
+    columns: [Ubicación, Llave Allen, kgf·m]
+    rows:
+      - [Tapa del tanque, 4 mm, 0.4 – 0.5]
+      - [Cubierta del guardabarros, 4 mm, "0.5"]
+      - [Pesa del manubrio, 5 mm, 0.8 – 1.2]
+      - [Disco delantero, 5 mm, "3.0"]
+      - [Disco trasero, 5 mm, 0.9 – 1.1]
+      - [Defensa, 5 mm, 0.8 – 1.0]
+      - [Montaje de la cubierta del guardabarros, 5 mm, 2.0 – 2.2]
+      - [Guardacadena, 5 mm, "0.5"]
+      - [Guardabarros delantero, 5 mm, 0.6 – 0.8]
+      - [Agarradera trasera, 6 mm, 1.8 – 2.0]
+      - [Soporte del manubrio, 6 mm, 1.8 – 2.0]
+      - [Reposapiés del conductor, 6 mm, 1.8 – 2.2]
+      - [Reposapiés del pasajero, 6 mm, 1.8 – 2.2]
+      - [Tornillos superiores de la suspensión, 6 mm, 1.8 – 2.2]
+      - [Montaje del faro, 6 mm, 1.8 – 2.2]
+      - [Tornillos superior e inferior del amortiguador, 8 mm, 3.2 – 3.8]
+  - title: Límites de servicio del chasis
+    note: "Medidas en mm. TIR es la lectura total del comparador. Para la holgura de la cadena el manual se contradice: el punto de mantenimiento periódico indica 25 – 30 mm de estándar y 35 – 40 mm de límite."
+    columns: [Medida, Estándar, Límite de servicio]
+    rows:
+      - [Espesor de las pastillas de freno, Delantera 7.4 · Trasera 7.3, Delantera 3.8 · Trasera 2]
+      - [Desalineación del eje (apoyos a 100 mm), TIR 0.1, TIR 0.2]
+      - [Descentramiento axial de la rueda, TIR 1.0, TIR 2.0]
+      - [Descentramiento radial de la rueda, TIR 0.8, TIR 2.0]
+      - [Deformación de la corona, TIR 0.4, "0.5"]
+      - [Holgura de la cadena, 15 – 25, 30 – 40]
+      - [Longitud de la cadena (20 eslabones), 301.6 – 302.1, "307"]
+      - [Profundidad del dibujo de la llanta, Delantera 5.0 · Trasera 6.0, Hasta 1.0]
+  - title: Grasas y fijador de roscas
+    columns: [Punto, Producto]
+    rows:
+      - [Rodamientos de dirección, Grasa HP Lithon RR3]
+      - [Eje del brazo oscilante, Grasa Shell Retinax]
+      - [Eje de la rueda delantera, Grasa Shell Retinax]
+      - [Eje de la rueda trasera, Grasa Shell Retinax]
+      - [Pivote del pedal de freno, Grasa Shell Retinax]
+      - [Eje del gato central, Grasa Shell Retinax]
+      - [Gato lateral, Grasa Shell Retinax]
+      - [Pedal de cambios, Grasa Shell Retinax]
+      - [Reposapiés, Loctite azul oscuro]
+      - [Perno inferior del amortiguador, Loctite azul oscuro]
+  - title: Herramientas especiales
+    columns: [Herramienta, N.º de parte, Uso]
+    rows:
+      - [Extractor de cigüeñal y separador de cárter, 37 1042 52, Separar los cárteres y sacar el cigüeñal]
+      - [Llave para bujías 3 en 1, 37 1042 55, Sacar las bujías laterales y la central con el motor montado]
+      - [Soporte del engranaje primario, 37 0041 54, Bloquear los engranajes al aflojar o apretar sus tuercas]
+      - [Copa castillo, 37 0041 60, Aflojar o apretar la tuerca de los engranajes]
+      - [Empujador de sellos, 37 0042 56, Asentar los sellos del balanceador y de la bomba]
+      - [Fijador del piñón de distribución, 37 1030 54, Sostener el piñón al aflojar o apretar su perno]
+      - [Extractor del rotor del magneto, 37 0041 55, Sacar el rotor del cigüeñal]
+      - [Llave del amortiguador trasero, 37 1630 04, Cambiar la muesca de precarga]
+      - [Extractor de sello de aceite y buje antifricción, 37 0041 83, Sacar el sello de aceite y el buje antifricción]
+  - title: Temperaturas del sistema de refrigeración
+    note: "La carta del sistema de refrigeración del mismo manual indica 88 ± 2 °C para el inicio de apertura del termostato y 96 ± 2 °C para la apertura total."
+    columns: [Evento, Temperatura]
+    rows:
+      - [El termostato empieza a abrir, 82 °C]
+      - [Termostato totalmente abierto, 96 °C]
+      - [Se enciende el ventilador, 98 °C]
+      - [Se apaga el ventilador, 92 °C]
+      - [Se enciende el aviso en el tablero, 115 °C]
+source: Manual de servicio Pulsar 200 NS, Auteco S.A.S. (edición completa en español, 130 páginas)

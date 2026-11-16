@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="330" viewBox="0 0 800 330" font-family="system-ui, sans-serif">
+  <rect width="800" height="330" rx="16" fill="#12161b"/>
+  <text x="40" y="46" fill="#e9eef3" font-size="20" font-weight="700">Dónde se mide la holgura de válvulas</text>
+
+  <!-- rocker arm (schematic) -->
+  <path d="M90 150 L250 128 L330 150 L250 168 Z" fill="#181d24" stroke="#8d99a8" stroke-width="3" stroke-linejoin="round"/>
+  <circle cx="210" cy="148" r="14" fill="#12161b" stroke="#8d99a8" stroke-width="3"/>
+  <text x="210" y="112" fill="#8d99a8" font-size="13" text-anchor="middle">Balancín</text>
+
+  <!-- adjuster screw and locknut -->
+  <rect x="296" y="96" width="16" height="92" rx="3" fill="#e9eef3"/>
+  <rect x="286" y="118" width="36" height="16" rx="3" fill="#f5b83d"/>
+  <text x="336" y="110" fill="#e9eef3" font-size="13">Tornillo de ajuste</text>
+  <text x="336" y="131" fill="#f5b83d" font-size="13">Contratuerca</text>
+
+  <!-- valve stem and spring -->
+  <rect x="297" y="200" width="14" height="96" fill="#8d99a8"/>
+  <path d="M276 222 H332 M276 238 H332 M276 254 H332 M276 270 H332" stroke="#4db5ff" stroke-width="4" stroke-linecap="round"/>
+  <text x="246" y="252" fill="#8d99a8" font-size="13" text-anchor="end">Vástago y resorte</text>
+
+  <!-- gap -->
+  <path d="M262 188 H346 M262 200 H346" stroke="#3ddc97" stroke-width="2" stroke-dasharray="4 4"/>
+  <rect x="346" y="190" width="120" height="8" rx="2" fill="#3ddc97"/>
+  <text x="478" y="200" fill="#3ddc97" font-size="14" font-weight="700">Galga</text>
+
+  <!-- values -->
+  <rect x="540" y="96" width="220" height="84" rx="12" fill="#181d24" stroke="#242b35" stroke-width="2"/>
+  <text x="560" y="126" fill="#8d99a8" font-size="14">Admisión (2 válvulas)</text>
+  <text x="560" y="160" fill="#e9eef3" font-size="26" font-weight="700">0.05 mm</text>
+  <rect x="540" y="196" width="220" height="84" rx="12" fill="#181d24" stroke="#242b35" stroke-width="2"/>
+  <text x="560" y="226" fill="#8d99a8" font-size="14">Escape (2 válvulas)</text>
+  <text x="560" y="260" fill="#e9eef3" font-size="26" font-weight="700">0.08 mm</text>
+
+  <text x="40" y="312" fill="#8d99a8" font-size="13">Con el motor frío y en punto muerto superior (marca «T»).</text>
+</svg>

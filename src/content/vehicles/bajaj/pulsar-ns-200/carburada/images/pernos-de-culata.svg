@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="340" viewBox="0 0 800 340" font-family="system-ui, sans-serif">
+  <rect width="800" height="340" rx="16" fill="#12161b"/>
+  <text x="40" y="46" fill="#e9eef3" font-size="20" font-weight="700">Pernos de la culata: orden y torque</text>
+
+  <!-- cylinder head seen from above (schematic) -->
+  <rect x="70" y="80" width="300" height="220" rx="18" fill="#181d24" stroke="#242b35" stroke-width="2"/>
+  <!-- cam chain tunnel on the left -->
+  <rect x="84" y="120" width="44" height="140" rx="8" fill="none" stroke="#8d99a8" stroke-width="2" stroke-dasharray="5 5"/>
+  <text x="106" y="286" fill="#8d99a8" font-size="12" text-anchor="middle">Cadenilla</text>
+
+  <!-- long bolts -->
+  <g fill="#f5b83d">
+    <circle cx="170" cy="118" r="13"/>
+    <circle cx="330" cy="118" r="13"/>
+    <circle cx="170" cy="262" r="13"/>
+    <circle cx="330" cy="262" r="13"/>
+  </g>
+  <!-- cross pattern -->
+  <path d="M170 118 L330 262 M330 118 L170 262" stroke="#f5b83d" stroke-width="2" stroke-dasharray="6 6" opacity="0.6"/>
+
+  <!-- short bolts, chain side -->
+  <g fill="#4db5ff">
+    <circle cx="106" cy="150" r="9"/>
+    <circle cx="106" cy="230" r="9"/>
+  </g>
+
+  <!-- legend -->
+  <circle cx="420" cy="112" r="9" fill="#4db5ff"/>
+  <text x="440" y="110" fill="#e9eef3" font-size="15" font-weight="700">2 pernos cortos M6 × 120</text>
+  <text x="440" y="130" fill="#8d99a8" font-size="14">Se aflojan primero · 1.0 – 1.2 kgf·m</text>
+
+  <circle cx="420" cy="178" r="11" fill="#f5b83d"/>
+  <text x="440" y="176" fill="#e9eef3" font-size="15" font-weight="700">4 pernos largos M10 × 147</text>
+  <text x="440" y="196" fill="#8d99a8" font-size="14">Se aflojan después, en cruz · 4.5 – 4.8 kgf·m</text>
+
+  <text x="420" y="252" fill="#3ddc97" font-size="14" font-weight="600">Aflojar siempre de a poco y en cruz</text>
+  <text x="420" y="272" fill="#8d99a8" font-size="13">para no deformar la culata.</text>
+  <text x="220" y="322" fill="#8d99a8" font-size="13" text-anchor="middle">Culata vista desde arriba (esquema)</text>
+</svg>

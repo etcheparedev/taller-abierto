@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="230" viewBox="0 0 800 230" font-family="system-ui, sans-serif">
+  <defs>
+    <marker id="next" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#3ddc97"/>
+    </marker>
+  </defs>
+  <rect width="800" height="230" rx="16" fill="#12161b"/>
+  <text x="40" y="46" fill="#e9eef3" font-size="20" font-weight="700">Las cuatro etapas de la limpieza</text>
+
+  <g fill="#181d24" stroke="#242b35" stroke-width="1.5">
+    <rect x="40" y="80" width="156" height="110" rx="12"/>
+    <rect x="228" y="80" width="156" height="110" rx="12"/>
+    <rect x="416" y="80" width="156" height="110" rx="12"/>
+    <rect x="604" y="80" width="156" height="110" rx="12"/>
+  </g>
+  <g fill="none" stroke="#3ddc97" stroke-width="2.5" marker-end="url(#next)">
+    <path d="M200 135 H224"/>
+    <path d="M388 135 H412"/>
+    <path d="M576 135 H600"/>
+  </g>
+
+  <g fill="#3ddc97" font-size="13" font-weight="700" font-family="ui-monospace, monospace">
+    <text x="56" y="108">01</text>
+    <text x="244" y="108">02</text>
+    <text x="432" y="108">03</text>
+    <text x="620" y="108">04</text>
+  </g>
+  <g fill="#e9eef3" font-size="18" font-weight="700">
+    <text x="56" y="138">Lavar</text>
+    <text x="244" y="138">Soplar</text>
+    <text x="432" y="138">Sumergir</text>
+    <text x="620" y="138">Escurrir</text>
+  </g>
+  <g fill="#8d99a8" font-size="13">
+    <text x="56" y="160">Diésel + aceite</text>
+    <text x="56" y="177">SAE 90 (1:1)</text>
+    <text x="244" y="160">Aire</text>
+    <text x="244" y="177">comprimido</text>
+    <text x="432" y="160">En aceite</text>
+    <text x="432" y="177">SAE 90</text>
+    <text x="620" y="160">Colgar la cadena</text>
+    <text x="620" y="177">hasta que escurra</text>
+  </g>
+</svg>

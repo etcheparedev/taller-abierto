@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="250" viewBox="0 0 800 250" font-family="system-ui, sans-serif">
+  <rect width="800" height="250" rx="16" fill="#12161b"/>
+  <text x="40" y="46" fill="#e9eef3" font-size="20" font-weight="700">Juegos libres de los mandos</text>
+
+  <g fill="#181d24" stroke="#242b35" stroke-width="1.5">
+    <rect x="40" y="72" width="226" height="146" rx="12"/>
+    <rect x="287" y="72" width="226" height="146" rx="12"/>
+    <rect x="534" y="72" width="226" height="146" rx="12"/>
+  </g>
+
+  <g text-anchor="middle">
+    <g fill="#8d99a8" font-size="14">
+      <text x="153" y="104">Palanca del embrague</text>
+      <text x="400" y="104">Puño del acelerador</text>
+      <text x="647" y="104">Pedal del freno trasero</text>
+    </g>
+    <g font-size="30" font-weight="700">
+      <text x="153" y="156" fill="#4db5ff">10 – 15 mm</text>
+      <text x="400" y="156" fill="#3ddc97">3 – 5 mm</text>
+      <text x="647" y="156" fill="#ff5a1f">15 – 20 mm</text>
+    </g>
+    <g fill="#8d99a8" font-size="13">
+      <text x="153" y="192">en el extremo de la palanca</text>
+      <text x="400" y="192">en el borde del puño</text>
+      <text x="647" y="192">en la punta del pedal</text>
+    </g>
+  </g>
+</svg>
