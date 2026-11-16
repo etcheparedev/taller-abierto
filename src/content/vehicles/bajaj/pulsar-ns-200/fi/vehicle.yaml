@@ -5,7 +5,7 @@ type: motorcycle
 tagline: Versión con inyección electrónica de combustible (DTS-i FI) gobernada por ECU. Naked de 200 cc con refrigeración líquida, triple bujía, chasis perimetral y caja de 6 velocidades.
 highlights:
   - { label: Cilindrada, value: 199.4 cc }
-  - { label: Potencia, value: 18 kW }
+  - { label: Potencia, value: 24.1 HP }
   - { label: Torque, value: 18.6 N·m }
   - { label: Velocidades, value: "6" }
 specs:
@@ -14,7 +14,7 @@ specs:
   - { label: Diámetro × carrera, value: 72.0 × 49.0 mm }
   - { label: Relación de compresión, value: "11 : 1" }
   - { label: Presión de compresión, value: 11 – 13 kg/cm² (límite 9.5 kg/cm²) }
-  - { label: Potencia máxima neta, value: 18 kW a 9750 rpm }
+  - { label: Potencia máxima neta, value: "18 kW (24.1 HP) a 9750 rpm" }
   - { label: Torque máximo neto, value: 18.6 N·m a 8000 rpm }
   - { label: Válvulas, value: "4 (2 de admisión, 2 de escape)" }
   - { label: Holgura de válvulas (en frío), value: Admisión 0.05 mm · Escape 0.08 mm }
